@@ -2,4 +2,22 @@
 	width: 100%;
 	height: 100vh;
 	background-color: pink;
+	padding: 5vw;
+
+	.wrap {
+		width: 100%;
+		height: 100%;
+		border: 1px solid blue;
+		display: grid;
+		gap: 30px;
+		//가로칸의 갯수와 비율을 지정
+		grid-template-columns: repeat(4, 1fr);
+		//세로 칸의 갯수와 비율을 지정
+		grid-template-rows: repeat(3, 1fr);
+
+		article {
+			background-color: #333;
+			border: 1px solid aqua;
+		}
+	}
 }
