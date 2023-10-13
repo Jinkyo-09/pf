@@ -1,6 +1,6 @@
 import Layout from '../../common/layout/Layout';
 import './Community.scss';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 
 export default function Community() {
 	//로컬데이터의 값을 psrsing해서 반환하는 함수
@@ -82,6 +82,10 @@ export default function Community() {
 			})
 		);
 	};
+
+	useEffect(() => {
+		localStorage.setItem('post', JSON.stringify(Posts));
+	}, [Posts]);
 
 	return (
 		<Layout title={'Community'}>
