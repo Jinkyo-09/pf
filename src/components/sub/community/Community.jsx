@@ -38,6 +38,17 @@ export default function Community() {
 		);
 	};
 
+	//해당글을 출력모드로 변경
+	const disenableUpdate = (editindex) => {
+		setPosts(
+			//포스트 배열값을 반복돌면서 인수로 전달된 포스트의 순범값과 ㅕㅎㄴ재 반ㅂ복도는 배열의 포스트 순번값이 일치하면 해당 글을 수정처리해야하므로 해당 객체에 enableupdate=true값을 추가
+			Posts.map((post, idx) => {
+				if (editindex === idx) post.enableUpdate = false;
+				return post;
+			})
+		);
+	};
+
 	return (
 		<Layout title={'Community'}>
 			<div className='inputBox'>
@@ -57,7 +68,7 @@ export default function Community() {
 						return (
 							<article key={idx}>
 								<div className='txt'>
-									<input type='text' defaultValue={post.title} onChange={(e) => e.target.value} />
+									<input type='text' defaultValue={post.title} />
 									<br />
 									{/* 
 									react에서 value속성을 적용하려면 무조건 onChange이벤트 연결 필수 
@@ -67,7 +78,7 @@ export default function Community() {
 								</div>
 
 								<nav>
-									<button>Cancel</button>
+									<button onClick={() => disenableUpdate(idx)}>Cancel</button>
 									<button>Update</button>
 								</nav>
 							</article>
