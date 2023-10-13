@@ -26,8 +26,10 @@ export default function Community() {
 	};
 
 	const deletePost = (delIndex) => {
-		//기존 Posts배열을 반복 돌면서 인수로 전달된 삭제 순번값과 현재 반복되는 배열의 순번값이 같지 않은 것만 리턴
-		setPosts(Posts.filter((_, idx) => delIndex !== idx));
+		if (window.confirm('해당 게시물을 삭제하겠습니까? 게시물 삭제 이후 복구할 수 없습니다.')) {
+			//기존 Posts배열을 반복 돌면서 인수로 전달된 삭제 순번값과 현재 반복되는 배열의 순번값이 같지 않은 것만 리턴
+			setPosts(Posts.filter((_, idx) => delIndex !== idx));
+		}
 	};
 
 	//해당 글을 수정모드로 변경
