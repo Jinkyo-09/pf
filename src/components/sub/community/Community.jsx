@@ -112,6 +112,11 @@ export default function Community() {
 					const string = JSON.stringify(post.data);
 
 					const [year, month, date] = string.split('T')[0].split('"')[1].split('-');
+
+					let [hour, min, sec] = string.split('T')[1].split('.')[0].split(':');
+					hour = parseInt(hour) + 9;
+					hour >= 24 && (hour = hour - 24);
+
 					if (post.enableUpdate) {
 						return (
 							<article key={idx}>
@@ -144,7 +149,8 @@ export default function Community() {
 								<div className='txt'>
 									<h2>{post.title}</h2>
 									<p>{post.content}</p>
-									<p>{`${year}-${month}-${date}`}</p>
+									<p>{`글 작성일 : ${year}-${month}-${date}`}</p>
+									<p>{`글 작성시간 : ${hour}:${min}:${sec}`}</p>
 								</div>
 
 								<nav className='btnSet'>
