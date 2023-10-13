@@ -8,6 +8,7 @@ export default function Community() {
 	const [Posts, setPosts] = useState([]);
 	const refEditInput = useRef(null);
 	const refEditTextarea = useRef(null);
+	const [Alloude, setAlloude] = useState(true);
 
 	const resetForm = () => {
 		refInput.current.value = '';
@@ -31,8 +32,12 @@ export default function Community() {
 
 	//해당 글을 수정모드로 변경
 	const enableUpdate = (editindex) => {
+		//수정모드 함수 호출시 Alloude가 true가 아니면 함수 강제 종료
+		if (!Alloude) return;
+		//일단 수정모드에 진입하면 강제로 Allowed값을 false로 변경해서 다른 글 수정모드 진입금지 처리
+		setAlloude(false);
 		setPosts(
-			//포스트 배열값을 반복돌면서 인수로 전달된 포스트의 순범값과 ㅕㅎㄴ재 반ㅂ복도는 배열의 포스트 순번값이 일치하면 해당 글을 수정처리해야하므로 해당 객체에 enableupdate=true값을 추가
+			//포스트 배열값을 반복돌면서 인수로 전달된 포스트의 순범값과 현재 반복도는 배열의 포스트 순번값이 일치하면 해당 글을 수정처리해야하므로 해당 객체에 enableupdate=true값을 추가
 			Posts.map((post, idx) => {
 				if (editindex === idx) post.enableUpdate = true;
 				return post;
@@ -42,6 +47,7 @@ export default function Community() {
 
 	//해당글을 출력모드로 변경
 	const disenableUpdate = (editindex) => {
+		setAlloude(true);
 		setPosts(
 			//포스트 배열값을 반복돌면서 인수로 전달된 포스트의 순범값과 ㅕㅎㄴ재 반ㅂ복도는 배열의 포스트 순번값이 일치하면 해당 글을 수정처리해야하므로 해당 객체에 enableupdate=true값을 추가
 			Posts.map((post, idx) => {
