@@ -1,14 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
+
 .Department {
 	figure {
 		background-color: lightblue;
 	}
 	.content {
 		h1 {
-			font-size: 2rem;
-			border-bottom: 1px solid #777;
-			padding-bottom: 1rem;
+			margin-bottom: 150px;
 		}
-
 		.sliderBox {
 			.sliderWrap {
 				width: 40%;
@@ -17,6 +17,8 @@
 				margin-bottom: 100px;
 				margin-top: 20px;
 				perspective: 600px;
+				display: flex;
+				justify-content: center;
 
 				article {
 					width: 100%;
@@ -69,31 +71,73 @@
 		.container {
 			width: 100%;
 			display: flex;
-			justify-content: space-between;
+			flex-direction: column;
 
 			.infoBox {
-				width: 25%;
-				height: 50vh;
-				background: blue;
+				width: 100%;
+				border-bottom: 1px solid #555;
+				margin-bottom: 30px;
+
+				p {
+					font: bold 50px/1 'Nanum Myeongjo';
+					color: #555;
+					padding-left: 20px;
+					margin-bottom: 20px;
+				}
 			}
-			.memberBox {
-				width: 70%;
+
+			.lower {
 				display: flex;
 				justify-content: space-between;
-				flex-wrap: wrap; //줄바꿈처리
 
-				article {
-					width: 32%;
-					margin-bottom: 70px;
+				p {
+					width: 15%;
+					font: 15px /1.5 'arial';
+					color: #555;
+				}
 
-					.pic {
-						width: 100%;
-						height: 40vh;
+				.memberBox {
+					width: 80%;
+					display: flex;
+					justify-content: space-between;
+					flex-wrap: wrap; //줄바꿈처리
+					border-bottom: 1px solid #555;
 
-						img {
+					article {
+						width: 32%;
+						margin-bottom: 70px;
+						filter: grayscale(100%);
+						transition: 0.5s;
+
+						.pic {
 							width: 100%;
-							height: 100%;
-							object-fit: cover;
+							height: 40vh;
+
+							img {
+								width: 100%;
+								height: 100%;
+								object-fit: cover;
+							}
+						}
+
+						h2 {
+							font: bold 35px/1 'Nanum Myeongjo';
+							color: #555;
+							margin: 15px 0 10px 0;
+							transition: 0.5s;
+						}
+
+						p {
+							width: 100%;
+						}
+
+						&:hover {
+							filter: grayscale(0%);
+							transform: scale(1.05);
+
+							h2 {
+								color: #333;
+							}
 						}
 					}
 				}

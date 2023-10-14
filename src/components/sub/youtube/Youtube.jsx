@@ -10,7 +10,7 @@ export default function Youtube() {
 	const fetchYoutube = async () => {
 		const api_key = process.env.REACT_APP_YOUTUBE_API;
 		const baseURL = 'https://www.googleapis.com/youtube/v3/playlistItems';
-		const pid = 'PLHtvRFLN5v-W5bQjvyH8QTdQQhgflJ3nu';
+		const pid = 'PL2pfG9YtKxMJVwlAjAIV9TBF5-44WnQ-q';
 		const num = 5;
 		const resultURL = `${baseURL}?key=${api_key}&part=snippet&playlistId=${pid}&maxResults=${num}`;
 
@@ -27,34 +27,33 @@ export default function Youtube() {
 	return (
 		<>
 			<Layout title={'Youtube'}>
-				{Youtube.map((data, idx) => {
-					let tit = data.snippet.title;
-					let desc = data.snippet.description;
-					let date = data.snippet.publishedAt;
+				{Youtube &&
+					Youtube.map((data, idx) => {
+						let tit = data.snippet.title;
+						let desc = data.snippet.description;
+						let date = data.snippet.publishedAt;
+						console.log(Youtube.json);
 
-					return (
-						<article key={idx}>
-							<div className='titBox'>
-								<h2>{tit.length > 60 ? tit.substr(0, 60) + '...' : tit}</h2>
-							</div>
+						return (
+							<article key={idx}>
+								<div className='titBox'>
+									<h2>{tit.length > 60 ? tit.substr(0, 60) + '...' : tit}</h2>
+								</div>
 
-							<div className='conBox'>
-								<p>{desc.length > 180 ? desc.substr(0, 180) + '...' : desc}</p>
-								<span>{date.split('T')[0].split('-').join('.')}</span>
-							</div>
+								<div className='conBox'>
+									<p>{desc.length > 180 ? desc.substr(0, 180) + '...' : desc}</p>
+									<span>{date.split('T')[0].split('-').join('.')}</span>
+								</div>
 
-							<div className='picBox'>
-								{/* 썸네일 링크 클릭시 특정유튜브 객체 하나의 정보값을 받기 위해서 유튜브 객체의 id값을 params로 전달 */}
-								<Link to={`/detail/${data.id}`}>
-									<img
-										src={data.snippet.thumbnails.standard.url}
-										alt={data.title}
-									/>
-								</Link>
-							</div>
-						</article>
-					);
-				})}
+								<div className='picBox'>
+									{/* 썸네일 링크 클릭시 특정유튜브 객체 하나의 정보값을 받기 위해서 유튜브 객체의 id값을 params로 전달 */}
+									<Link to={`/detail/${data.id}`}>
+										<img src={data.snippet.thumbnails.standard.url} alt={data.title} />
+									</Link>
+								</div>
+							</article>
+						);
+					})}
 			</Layout>
 
 			{/* {IsModal && (
