@@ -29,14 +29,17 @@
 				}
 			}
 
-			h2 {
-				font: bold 30px/1.2 'Nanum Myeongjo';
-				color: #222;
-				margin-bottom: 15px;
-			}
+			.txt {
+				padding: 10px;
+				h2 {
+					font: bold 30px/1.2 'Nanum Myeongjo';
+					color: #222;
+					margin-bottom: 15px;
+				}
 
-			p {
-				font: normal 16px/1.5 'arial';
+				p {
+					font: normal 16px/1.5 'arial';
+				}
 			}
 		}
 	}

@@ -36,8 +36,10 @@ function Detail() {
 						title='youtube'
 					></iframe>
 				</div>
-				<h2>{Data?.title}</h2>
-				<p>{Data?.description}</p>
+				<div className='txt'>
+					<h2>{Data?.title}</h2>
+					<p>{Data?.description}</p>
+				</div>
 			</div>
 		</Layout>
 	);
