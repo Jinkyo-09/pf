@@ -149,8 +149,10 @@ export default function Community() {
 								<div className='txt'>
 									<h2>{post.title}</h2>
 									<p>{post.content}</p>
-									<p>{`글 작성일 : ${year}-${month}-${date}`}</p>
-									<p>{`글 작성시간 : ${hour}:${min}:${sec}`}</p>
+									<div className='time'>
+										<p>{`${year}.${month}.${date}`}</p>
+										{/* <p>{`글 작성시간 : ${hour}:${min}:${sec}`}</p> */}
+									</div>
 								</div>
 
 								<nav className='btnSet'>

@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
 
 .Department {
 	figure {
@@ -125,10 +124,13 @@
 							color: #555;
 							margin: 15px 0 10px 0;
 							transition: 0.5s;
+							margin-left: 5px;
 						}
 
 						p {
 							width: 100%;
+							margin-bottom: 15px;
+							margin-left: 5px;
 						}
 
 						&:hover {
