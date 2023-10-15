@@ -52,11 +52,11 @@
 				height: 200px;
 				overflow: hidden;
 				transition: 0.4s;
-				filter: grayscale(100%);
+				//filter: grayscale(100%);
 
 				&:hover {
 					transform: scale(1.05);
-					filter: grayscale(0%);
+					//filter: grayscale(0%);
 				}
 
 				img {
