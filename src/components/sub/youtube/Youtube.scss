@@ -8,22 +8,17 @@
 	}
 
 	.content {
-		h1 {
-		}
-
 		article {
 			width: 100%;
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
-			filter: grayscale(100%);
 			transition: 0.4s;
 			border-top: 1px solid #555;
 			padding-top: 15px;
 			padding-bottom: 50px;
 
 			&:hover {
-				filter: grayscale(0%);
 			}
 
 			&:nth-last-child(1) {
@@ -32,18 +27,36 @@
 
 			.titBox {
 				width: 25%;
+
+				h2 {
+					font: bold 25px/1.2 'Nanum Myeongjo';
+					color: #333;
+				}
 			}
 			.conBox {
 				width: 40%;
+
+				p {
+					font: 18px/1.4 'airal';
+					color: #333;
+					margin-bottom: 30px;
+				}
+
+				span {
+					font: 13px/1 'Nanum Myeongjo';
+					color: #555;
+				}
 			}
 			.picBox {
 				width: 25%;
 				height: 200px;
 				overflow: hidden;
 				transition: 0.4s;
+				filter: grayscale(100%);
 
 				&:hover {
 					transform: scale(1.05);
+					filter: grayscale(0%);
 				}
 
 				img {
