@@ -23,11 +23,6 @@
 
 				&:focus {
 					outline: none;
-					background-color: #fff;
-				}
-
-				&:hover {
-					background-color: #fff;
 				}
 			}
 
@@ -48,13 +43,12 @@
 				font: bold 18px/1 'Nanum Myeongjo';
 				color: #555;
 				transition: 0.2s;
-
-				&:hover {
-					color: magenta;
-				}
+				padding: 8px 10px;
+				border-radius: 15px;
 
 				&.on {
-					color: magenta;
+					color: #fff;
+					background-color: #555;
 				}
 			}
 		}
