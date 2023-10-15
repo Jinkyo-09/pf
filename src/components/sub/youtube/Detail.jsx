@@ -1,6 +1,7 @@
 import Layout from '../../common/layout/Layout';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Detail.scss';
 
 function Detail() {
@@ -23,13 +24,20 @@ function Detail() {
 
 	return (
 		<Layout title={'Detail'}>
-			<h2>{Data?.title}</h2>
-			<p>{Data?.description}</p>
-			<div className='vidBox'>
-				<iframe
-					src={`https://www.youtube.com/embed/${Data?.resourceId.videoId}`}
-					title='youtube'
-				></iframe>
+			<div className='back'>
+				<Link to='/Youtube'>
+					<p>Back</p>
+				</Link>
+			</div>
+			<div className='con'>
+				<div className='vidBox'>
+					<iframe
+						src={`https://www.youtube.com/embed/${Data?.resourceId.videoId}`}
+						title='youtube'
+					></iframe>
+				</div>
+				<h2>{Data?.title}</h2>
+				<p>{Data?.description}</p>
 			</div>
 		</Layout>
 	);
