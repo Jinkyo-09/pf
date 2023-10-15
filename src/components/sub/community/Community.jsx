@@ -107,6 +107,8 @@ export default function Community() {
 				</nav>
 			</div>
 
+			<div className='tit'>Posts</div>
+
 			<div className='showBox'>
 				{Posts.map((post, idx) => {
 					const string = JSON.stringify(post.data);
@@ -128,19 +130,19 @@ export default function Community() {
 									onChange이벤트 연결하지 않을때에는 value가닌 defaultValue속성 적용
 									*/}
 									<textarea defaultValue={post.content} ref={refEditTextarea} />
-								</div>
 
-								<nav>
-									<button onClick={() => disenableUpdate(idx)}>Cancel</button>
-									<button
-										onClick={() => {
-											updatePost(idx);
-											disenableUpdate(idx);
-										}}
-									>
-										Update
-									</button>
-								</nav>
+									<nav>
+										<button onClick={() => disenableUpdate(idx)}>Cancel</button>
+										<button
+											onClick={() => {
+												updatePost(idx);
+												disenableUpdate(idx);
+											}}
+										>
+											Update
+										</button>
+									</nav>
+								</div>
 							</article>
 						);
 					} else {
@@ -150,15 +152,15 @@ export default function Community() {
 									<h2>{post.title}</h2>
 									<p>{post.content}</p>
 									<div className='time'>
-										<p>{`${year}.${month}.${date}`}</p>
+										{/* <p>{`${year}.${month}.${date}`}</p> */}
 										{/* <p>{`글 작성시간 : ${hour}:${min}:${sec}`}</p> */}
 									</div>
-								</div>
 
-								<nav className='btnSet'>
-									<button onClick={() => enableUpdate(idx)}>Edit</button>
-									<button onClick={() => deletePost(idx)}>Delete</button>
-								</nav>
+									<nav className='btnSet'>
+										<button onClick={() => enableUpdate(idx)}>Edit</button>
+										<button onClick={() => deletePost(idx)}>Delete</button>
+									</nav>
+								</div>
 							</article>
 						);
 					}
