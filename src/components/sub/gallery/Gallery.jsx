@@ -11,7 +11,7 @@ export default function Gallery() {
 	const [ActiveURL, setActiveURL] = useState('');
 	const [IsUser, setIsUser] = useState(true);
 	const [IsModal, setIsModal] = useState(false);
-	const my_id = '164021883@N04';
+	const my_id = '199299808@N06';
 
 	//처음 마운트 데이터 호출 함수
 	const fetchData = async (opt) => {
@@ -95,23 +95,21 @@ export default function Gallery() {
 	return (
 		<>
 			<Layout title={'Gallery'}>
-				<div className='searchBox'>
-					<form onSubmit={handleSubmit}>
-						<input
-							ref={refInput}
-							type='text'
-							placeholder='검색어를 입력하세요'
-						/>
-						<button>검색</button>
-					</form>
-				</div>
+				<div className='upper'>
+					<div className='searchBox'>
+						<form onSubmit={handleSubmit}>
+							<input ref={refInput} type='text' placeholder='검색어를 입력하세요' />
+							<button>search</button>
+						</form>
+					</div>
 
-				<div className='btnSet' ref={refBtnSet}>
-					<button className='on' onClick={handleClickMy}>
-						My Gallery
-					</button>
+					<div className='btnSet' ref={refBtnSet}>
+						<button className='on' onClick={handleClickMy}>
+							My Gallery
+						</button>
 
-					<button onClick={handleClickInterest}>Interest Gallery</button>
+						<button onClick={handleClickInterest}>Interest Gallery</button>
+					</div>
 				</div>
 
 				<div className='picFrame'>

@@ -1,6 +1,65 @@
 @import '../../../styles/Variable.scss';
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
 
 .Gallery {
+	.upper {
+		display: flex;
+		justify-content: space-between;
+		margin-top: 50px;
+		padding: 0 10px;
+
+		.searchBox {
+			width: 25%;
+			margin-bottom: 10px;
+			margin-right: 5px;
+
+			input {
+				width: 80%;
+				border: none;
+				padding: 8px;
+				border-bottom: 1px solid #555;
+				background-color: transparent;
+				transition: 0.5s;
+
+				&:focus {
+					outline: none;
+					background-color: #fff;
+				}
+
+				&:hover {
+					background-color: #fff;
+				}
+			}
+
+			button {
+				border: none;
+				background-color: transparent;
+				margin-left: 8px;
+				font: bold 16px/1 'Nanum Myeongjo';
+				cursor: pointer;
+				color: #555;
+			}
+		}
+
+		.btnSet {
+			button {
+				margin-left: 16px;
+				border: none;
+				font: bold 18px/1 'Nanum Myeongjo';
+				color: #555;
+				transition: 0.2s;
+
+				&:hover {
+					color: magenta;
+				}
+
+				&.on {
+					color: magenta;
+				}
+			}
+		}
+	}
+
 	.picFrame {
 		width: 100%;
 
@@ -23,9 +82,10 @@
 
 				.pic {
 					width: 100%;
+					cursor: pointer;
 				}
 				h2 {
-					font: normal 1rem/1.2 'arial';
+					font: bold 1rem/1.2 'Nanum Myeongjo';
 					color: #555;
 					margin-top: 10px;
 					margin-bottom: 40px;
@@ -36,8 +96,15 @@
 					align-items: center;
 					gap: 20px;
 
+					img {
+						border-radius: 50%;
+					}
+
 					span {
 						font-size: 0.8rem;
+						font-family: arial;
+						color: #555;
+						cursor: pointer;
 					}
 				}
 			}
