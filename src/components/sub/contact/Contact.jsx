@@ -74,10 +74,7 @@ export default function Contact() {
 
 		//지도 타입 변경 UI추가
 		const mapTypeControl = new kakao.maps.MapTypeControl();
-		instance.current.addControl(
-			mapTypeControl,
-			kakao.maps.ControlPosition.BOTTOMLEFT
-		);
+		instance.current.addControl(mapTypeControl, kakao.maps.ControlPosition.BOTTOMLEFT);
 
 		//지도 생성시 마커 고정적으로 적용되기 때문에 브라우저 리사이즈시 마커가 가운데 위치하지 않는 문제
 		//마커를 가운데 고정시키는 함수를 제작한뒤 윈도우객체 직접 resize이벤트 발생시마다 핸들러함수 호출해서 마커위치 보정
@@ -92,10 +89,7 @@ export default function Contact() {
 			info.current[Index].latlng,
 			100, //해당 지도의 위치값에서 반경 100미터 안에 제일 가까운 도로 기준으로 로드뷰화면 생성
 			(panoId) => {
-				new kakao.maps.Roadview(view.current).setPanoId(
-					panoId,
-					info.current[Index].latlng
-				);
+				new kakao.maps.Roadview(view.current).setPanoId(panoId, info.current[Index].latlng);
 			}
 		);
 
@@ -185,45 +179,44 @@ export default function Contact() {
 				</div>
 
 				<div id='etc'>
-					Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit, id
-					nesciunt? Dolores architecto quas voluptate dolorem impedit ab dolore,
-					itaque blanditiis iste esse delectus libero ipsum repudiandae porro
-					nulla fuga.
+					Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit, id nesciunt? Dolores
+					architecto quas voluptate dolorem impedit ab dolore, itaque blanditiis iste esse delectus
+					libero ipsum repudiandae porro nulla fuga.
 				</div>
 			</div>
 
 			<div id='mapBox'>
-				<div className='btnSet'>
-					<button onClick={() => setTraffic(!Traffic)}>
-						{Traffic ? '교통정보 끄기' : '교통정보 켜기'}
-					</button>
+				<div className='btns'>
+					<div className='btnSet'>
+						<button onClick={() => setTraffic(!Traffic)}>
+							{Traffic ? '교통정보 끄기' : '교통정보 켜기'}
+						</button>
 
-					<button onClick={setCenter}>지도 위치 초기화</button>
-					<button onClick={() => setIsMap(!IsMap)}>
-						{IsMap ? '로드뷰보기' : '지도보기'}
-					</button>
+						<button onClick={setCenter}>지도 위치 초기화</button>
+						<button onClick={() => setIsMap(!IsMap)}>{IsMap ? '로드뷰보기' : '지도보기'}</button>
+					</div>
+
+					{/* 데이터기반으로 자동 버튼 생성 및 자동 이벤트 연결 처리 */}
+					<ul>
+						{info.current.map((el, idx) => (
+							<li
+								className={Index === idx ? 'on' : ''}
+								key={idx}
+								onClick={() => {
+									setIndex(idx);
+									setIsMap(true);
+								}}
+							>
+								{el.title}
+							</li>
+						))}
+					</ul>
 				</div>
 
 				<div className='container'>
 					<div className={`view ${IsMap ? '' : 'on'}`} ref={view}></div>
 					<div className={`map ${IsMap ? 'on' : ''}`} ref={map}></div>
 				</div>
-
-				{/* 데이터기반으로 자동 버튼 생성 및 자동 이벤트 연결 처리 */}
-				<ul>
-					{info.current.map((el, idx) => (
-						<li
-							className={Index === idx ? 'on' : ''}
-							key={idx}
-							onClick={() => {
-								setIndex(idx);
-								setIsMap(true);
-							}}
-						>
-							{el.title}
-						</li>
-					))}
-				</ul>
 			</div>
 		</Layout>
 	);

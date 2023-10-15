@@ -7,6 +7,7 @@
 		width: 100%;
 		position: relative;
 
+		/*
 		&::before {
 			content: '';
 			display: block;
@@ -17,6 +18,7 @@
 			right: 0px;
 			top: 0px;
 		}
+		*/
 
 		h1 {
 			width: 70vw;
@@ -62,13 +64,11 @@
 							margin-right: 50px;
 							outline: none;
 							transition: 0.5s;
-
-							&:focus {
-								background: lightcyan;
-							}
+							background-color: transparent;
 						}
 					}
 				}
+
 				.lower {
 					width: 100%;
 					margin-bottom: 10px;
@@ -88,9 +88,7 @@
 						resize: none;
 						outline: none;
 						transition: 0.5s;
-						&:focus {
-							background: lightcyan;
-						}
+						background-color: transparent;
 					}
 				}
 
@@ -99,15 +97,17 @@
 					padding-right: 20px;
 					display: flex;
 					gap: 50px;
+					justify-content: flex-end;
 
 					input {
 						display: block;
 						height: 40px;
 						background: transparent;
-						border: 1px solid #666;
+						border: none;
 						font: 1rem/40px 'arial';
 						color: #555;
 						text-align: center;
+						cursor: pointer;
 					}
 				}
 			}
@@ -116,18 +116,56 @@
 				width: 50%;
 				height: 300px;
 				padding-left: 50px;
-				border-left: 1px solid #aaa;
+				border-left: 1px solid #555;
 			}
 		}
 
 		#mapBox {
-			.btnSet {
-				width: 70vw;
-				margin: 0px auto;
+			width: 70%;
+			margin: 0 auto;
+
+			.btns {
+				display: flex;
+				justify-content: space-between;
+
+				.btnSet {
+					width: 100%;
+					margin: 0px auto;
+
+					button {
+						margin-right: 10px;
+						padding: 5px;
+						border: none;
+						margin-bottom: 8px;
+						font: 16px/1 'arial';
+						cursor: pointer;
+					}
+				}
+
+				ul {
+					display: flex;
+					gap: 20px;
+					width: 50%;
+					margin-bottom: 10px;
+					justify-content: flex-end;
+
+					li {
+						cursor: pointer;
+						padding: 5px 10px;
+					}
+
+					li.on {
+						background-color: #f6bb57;
+						color: #fff;
+						border-radius: 10px;
+					}
+				}
 			}
+
 			.container {
 				width: 100%;
 				height: 60vh;
+				margin: 0 auto;
 				background: #111;
 				position: relative;
 
@@ -146,19 +184,6 @@
 						opacity: 1;
 						z-index: 2;
 					}
-				}
-			}
-
-			ul {
-				display: flex;
-				gap: 20px;
-
-				li {
-					cursor: pointer;
-				}
-
-				li.on {
-					color: hotpink;
 				}
 			}
 		}
