@@ -2,6 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
 
 .Gallery {
+	figure {
+		background-image: url('../../../../public/img/gallery.jpg');
+		background-size: cover;
+		background-position: top 45% center;
+	}
 	.upper {
 		display: flex;
 		justify-content: space-between;

@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
 
 .Community {
+	figure {
+		background-image: url('../../../../public/img/community.jpg');
+		background-size: cover;
+		background-position: top 45% center;
+	}
 	.content {
 		.inputBox {
 			width: 100%;

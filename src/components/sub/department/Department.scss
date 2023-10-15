@@ -2,7 +2,9 @@
 
 .Department {
 	figure {
-		background-color: lightblue;
+		background-image: url('../../../../public/img/department.jpg');
+		background-size: cover;
+		background-position: top 70% center;
 	}
 	.content {
 		h1 {
