@@ -19,13 +19,20 @@ export default function Members() {
 
 	//인수값으로 state를 전달받아서 각 데이터별로 인증처리후
 	//만약 인증 에러가 발생하면 해당 name값으로 에서 물구를 생성해서 반환하는 함수
-	const check = (value) => {};
+	const check = (value) => {
+		const errs = {};
+		if (value.userid.length < 5) {
+			errs.userid = '아이디는 최소 5글자 이상 입력하세요.';
+		}
+		return errs;
+	};
 
 	//전송이벤트 발생시 state에 있는 input값들을 check함수에 전달해서 호출
 	//만약 check함수가 에러 객체를 하나도 전달하지 않으면 인증 성공
 	//하나라도 에러객체가 전달되면 인증실패 처리하면서 name값과 매칭되는 input요소 아래쪽에 에러메세지 출력
 	const handleSubmit = (e) => {
-		e.preventdefault();
+		e.preventDefault();
+		console.log(check(Val));
 	};
 
 	return (
