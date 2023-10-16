@@ -32,6 +32,11 @@ export default function Members() {
 		if (value.pw1.length < 5 || !num.test(value.pw1) || !txt.test(value.pw1) || !spc.test(value.pw1)) {
 			errs.pw1 = '비밀번호는 5글자 이상, 문자, 숫자, 특수문자를 모두 포함해야합니다.';
 		}
+
+		//비밀번호 재확인 인증
+		if (value.pw1 !== value.pw2) {
+			errs.pw2 = '비밀번호가 일치하지 않습니다.';
+		}
 		return errs;
 	};
 
