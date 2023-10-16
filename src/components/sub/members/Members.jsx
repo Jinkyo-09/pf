@@ -11,6 +11,7 @@ export default function Members() {
 	};
 
 	const [Val, setVal] = useState(initVal);
+	const [Errs, setErrs] = useState([]);
 
 	const HandleChange = (e) => {
 		const { name, value } = e.target;
@@ -30,12 +31,12 @@ export default function Members() {
 		}
 		//비밀번호 인증 (5글자 이상, 문자, 숫자, 특수문자 모두 포함)
 		if (value.pw1.length < 5 || !num.test(value.pw1) || !txt.test(value.pw1) || !spc.test(value.pw1)) {
-			errs.pw1 = '비밀번호는 5글자 이상, 문자, 숫자, 특수문자를 모두 포함해야합니다.';
+			errs.pwd1 = '비밀번호는 5글자이상, 문자,숫자,특수문자를 모두 포함해야 합니다.';
 		}
 
 		//비밀번호 재확인 인증
-		if (value.pw1 !== value.pw2) {
-			errs.pw2 = '비밀번호가 일치하지 않습니다.';
+		if (value.pw1 !== value.pw2 || !value.pw2) {
+			errs.pwd2 = '2개의 비밀번호를 같게 입력하세요.';
 		}
 
 		//이메일 인증
@@ -61,7 +62,11 @@ export default function Members() {
 	//하나라도 에러객체가 전달되면 인증실패 처리하면서 name값과 매칭되는 input요소 아래쪽에 에러메세지 출력
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(check(Val));
+		if (Object.keys(check(Val)).length === 0) {
+			alert('인증통과');
+		} else {
+			setErrs(check(Val));
+		}
 	};
 
 	return (
@@ -85,6 +90,7 @@ export default function Members() {
 										value={Val.userid}
 										onChange={HandleChange}
 									/>
+									{Errs.userid && <p>{Errs.userid}</p>}
 								</td>
 							</tr>
 
@@ -95,6 +101,7 @@ export default function Members() {
 								</th>
 								<td>
 									<input type='password' id='pw1' name='pw1' value={Val.pw1} onChange={HandleChange} />
+									{Errs.pwd1 && <p>{Errs.pwd1}</p>}
 								</td>
 							</tr>
 
@@ -105,6 +112,7 @@ export default function Members() {
 								</th>
 								<td>
 									<input type='password' id='pw2' name='pw2' value={Val.pw2} onChange={HandleChange} />
+									{Errs.pwd2 && <p>{Errs.pwd2}</p>}
 								</td>
 							</tr>
 
@@ -115,6 +123,7 @@ export default function Members() {
 								</th>
 								<td>
 									<input type='text' id='email' name='email' value={Val.email} onChange={HandleChange} />
+									{Errs.email && <p>{Errs.email}</p>}
 								</td>
 							</tr>
 
