@@ -1,7 +1,22 @@
 import Layout from '../../common/layout/Layout';
 import './Members.scss';
+import { useState } from 'react';
 
 export default function Members() {
+	const initVal = {
+		userid: '',
+		pw1: '',
+		pw2: '',
+		emaim: '',
+	};
+
+	const [Val, setVal] = useState(initVal);
+
+	const HandleChange = (e) => {
+		const { name, value } = e.target;
+		console.log(name, value);
+	};
+
 	return (
 		<Layout title={'Members'}>
 			<form>
@@ -12,20 +27,20 @@ export default function Members() {
 							{/* userID */}
 							<tr>
 								<th scope='row'>
-									<label htmlFor='userid'>userID</label>
+									<label htmlFor='userid'>UserID</label>
 								</th>
 								<td>
-									<input type='text' id='userid' name='userid' />
+									<input type='text' id='userid' name='userid' value={Val.userid} onChange={HandleChange} />
 								</td>
 							</tr>
 
 							{/* password1 */}
 							<tr>
 								<th scope='row'>
-									<label htmlFor='pw1'>password</label>
+									<label htmlFor='pw1'>Password</label>
 								</th>
 								<td>
-									<input type='password' id='pw1' name='pw1' />
+									<input type='password' id='pw1' name='pw1' value={Val.pw1} onChange={HandleChange} />
 								</td>
 							</tr>
 
@@ -35,7 +50,17 @@ export default function Members() {
 									<label htmlFor='pw2'>Re-Password</label>
 								</th>
 								<td>
-									<input type='password' id='pw2' name='pw2' />
+									<input type='password' id='pw2' name='pw2' value={Val.pw2} onChange={HandleChange} />
+								</td>
+							</tr>
+
+							{/* password2 */}
+							<tr>
+								<th scope='row'>
+									<label htmlFor='email'>E-mail</label>
+								</th>
+								<td>
+									<input type='text' id='email' name='email' value={Val.email} onChange={HandleChange} />
 								</td>
 							</tr>
 
