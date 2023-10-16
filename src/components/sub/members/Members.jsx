@@ -8,6 +8,7 @@ export default function Members() {
 		pw1: '',
 		pw2: '',
 		emaim: '',
+		gender: false,
 	};
 
 	const [Val, setVal] = useState(initVal);
@@ -16,6 +17,11 @@ export default function Members() {
 	const HandleChange = (e) => {
 		const { name, value } = e.target;
 		setVal({ ...Val, [name]: value });
+	};
+
+	const handleRadio = (e) => {
+		const { name, checked } = e.target;
+		setVal({ ...Val, [name]: checked });
 	};
 
 	//인수값으로 state를 전달받아서 각 데이터별로 인증처리후
@@ -54,12 +60,14 @@ export default function Members() {
 			}
 		}
 
+		//성별인증
+		if (!value.gender) {
+			errs.gender = '성별을 하나이상 체크해주세요.';
+		}
+
 		return errs;
 	};
 
-	//전송이벤트 발생시 state에 있는 input값들을 check함수에 전달해서 호출
-	//만약 check함수가 에러 객체를 하나도 전달하지 않으면 인증 성공
-	//하나라도 에러객체가 전달되면 인증실패 처리하면서 name값과 매칭되는 input요소 아래쪽에 에러메세지 출력
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		if (Object.keys(check(Val)).length === 0) {
@@ -124,6 +132,19 @@ export default function Members() {
 								<td>
 									<input type='text' id='email' name='email' value={Val.email} onChange={HandleChange} />
 									{Errs.email && <p>{Errs.email}</p>}
+								</td>
+							</tr>
+
+							{/* gender */}
+							<tr>
+								<th>gender</th>
+								<td>
+									<label htmlFor='female'>female</label>
+									<input type='radio' name='gender' id='female' onChange={handleRadio} />
+
+									<label htmlFor='male'>male</label>
+									<input type='radio' name='gender' id='male' onChange={handleRadio} />
+									{Errs.gender && <p>{Errs.gender}</p>}
 								</td>
 							</tr>
 
