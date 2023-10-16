@@ -11,6 +11,7 @@ export default function Members() {
 		gender: false,
 		interest: false,
 		edu: '',
+		comments: '',
 	};
 
 	const [Val, setVal] = useState(initVal);
@@ -24,6 +25,11 @@ export default function Members() {
 	const handleRadio = (e) => {
 		const { name, checked } = e.target;
 		setVal({ ...Val, [name]: checked });
+	};
+
+	const resetForm = (e) => {
+		e.preventDefault();
+		setVal(initVal);
 	};
 
 	const handleCheck = (e) => {
@@ -83,6 +89,11 @@ export default function Members() {
 		//학력인증
 		if (!value.edu) {
 			errs.edu = '학력을 선택하세요.';
+		}
+
+		//남기는말 인증
+		if (value.comments.length < 10) {
+			errs.comments = '남기는말은 10글자 이상 입력하세요.';
 		}
 
 		return errs;
@@ -202,10 +213,21 @@ export default function Members() {
 								</td>
 							</tr>
 
+							{/* comments */}
+							<tr>
+								<th>
+									<label htmlFor='comments'>Comments</label>
+								</th>
+								<td>
+									<textarea name='comments' id='' cols='30' rows='3' value={Val.comments} onChange={HandleChange}></textarea>
+									{Errs.comments && <p>{Errs.comments}</p>}
+								</td>
+							</tr>
+
 							{/* btnSet */}
 							<tr>
 								<th colSpan='2'>
-									<input type='reset' Value='cancel' />
+									<input type='reset' Value='cancel' onClick={resetForm} />
 									<input type='submit' Value='send' />
 								</th>
 							</tr>
