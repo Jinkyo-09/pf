@@ -38,7 +38,9 @@ export default function Members() {
 		checks.forEach((input) => (input.checked = false));
 		radios.forEach((input) => (input.checked = false));
     */
-		[refCheckGroup, refRadioGroup].forEach((el) => el.current.querySelectorAll('input').forEach((input) => (input.checked = false)));
+		[refCheckGroup, refRadioGroup].forEach((el) =>
+			el.current.querySelectorAll('input').forEach((input) => (input.checked = false))
+		);
 		refSelGroup.current.value = '';
 	};
 
@@ -62,7 +64,12 @@ export default function Members() {
 			errs.userid = '아이디는 최소 5글자 이상 입력하세요.';
 		}
 		//비밀번호 인증 (5글자 이상, 문자, 숫자, 특수문자 모두 포함)
-		if (value.pw1.length < 5 || !num.test(value.pw1) || !txt.test(value.pw1) || !spc.test(value.pw1)) {
+		if (
+			value.pw1.length < 5 ||
+			!num.test(value.pw1) ||
+			!txt.test(value.pw1) ||
+			!spc.test(value.pw1)
+		) {
 			errs.pwd1 = '비밀번호는 5글자이상, 문자,숫자,특수문자를 모두 포함해야 합니다.';
 		}
 
@@ -149,7 +156,13 @@ export default function Members() {
 									<label htmlFor='pw1'>Password</label>
 								</th>
 								<td>
-									<input type='password' id='pw1' name='pw1' value={Val.pw1} onChange={HandleChange} />
+									<input
+										type='password'
+										id='pw1'
+										name='pw1'
+										value={Val.pw1}
+										onChange={HandleChange}
+									/>
 									{Errs.pwd1 && <p>{Errs.pwd1}</p>}
 								</td>
 							</tr>
@@ -160,7 +173,13 @@ export default function Members() {
 									<label htmlFor='pw2'>Re-Password</label>
 								</th>
 								<td>
-									<input type='password' id='pw2' name='pw2' value={Val.pw2} onChange={HandleChange} />
+									<input
+										type='password'
+										id='pw2'
+										name='pw2'
+										value={Val.pw2}
+										onChange={HandleChange}
+									/>
 									{Errs.pwd2 && <p>{Errs.pwd2}</p>}
 								</td>
 							</tr>
@@ -171,7 +190,13 @@ export default function Members() {
 									<label htmlFor='email'>E-mail</label>
 								</th>
 								<td>
-									<input type='text' id='email' name='email' value={Val.email} onChange={HandleChange} />
+									<input
+										type='text'
+										id='email'
+										name='email'
+										value={Val.email}
+										onChange={HandleChange}
+									/>
 									{Errs.email && <p>{Errs.email}</p>}
 								</td>
 							</tr>
@@ -229,7 +254,14 @@ export default function Members() {
 									<label htmlFor='comments'>Comments</label>
 								</th>
 								<td>
-									<textarea name='comments' id='' cols='30' rows='3' value={Val.comments} onChange={HandleChange}></textarea>
+									<textarea
+										name='comments'
+										id=''
+										cols='30'
+										rows='3'
+										value={Val.comments}
+										onChange={HandleChange}
+									></textarea>
 									{Errs.comments && <p>{Errs.comments}</p>}
 								</td>
 							</tr>
