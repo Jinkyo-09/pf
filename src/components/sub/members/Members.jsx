@@ -14,13 +14,23 @@ export default function Members() {
 
 	const HandleChange = (e) => {
 		const { name, value } = e.target;
-		//현재 onChange 이벤트가 발생하고 있는 form요소의 name 객체 안에서 변수로 가져오고 value값도 가져온 뒤 기존의 state값을 딮카피 한 뒤 내가 입력하고 있는 인풋의 프로퍼티값 덮어쓰기
 		setVal({ ...Val, [name]: value });
+	};
+
+	//인수값으로 state를 전달받아서 각 데이터별로 인증처리후
+	//만약 인증 에러가 발생하면 해당 name값으로 에서 물구를 생성해서 반환하는 함수
+	const check = (value) => {};
+
+	//전송이벤트 발생시 state에 있는 input값들을 check함수에 전달해서 호출
+	//만약 check함수가 에러 객체를 하나도 전달하지 않으면 인증 성공
+	//하나라도 에러객체가 전달되면 인증실패 처리하면서 name값과 매칭되는 input요소 아래쪽에 에러메세지 출력
+	const handleSubmit = (e) => {
+		e.preventdefault();
 	};
 
 	return (
 		<Layout title={'Members'}>
-			<form>
+			<form onSubmit={handleSubmit}>
 				<fieldset>
 					<legend className='h'>회원가입 폼 양식</legend>
 					<table border='1'>
