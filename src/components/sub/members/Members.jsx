@@ -10,6 +10,7 @@ export default function Members() {
 		emaim: '',
 		gender: false,
 		interest: false,
+		edu: '',
 	};
 
 	const [Val, setVal] = useState(initVal);
@@ -77,6 +78,11 @@ export default function Members() {
 		//관심사 인증
 		if (!value.interest) {
 			errs.interest = '관심사를 하나 이상 체크해주세요.';
+		}
+
+		//학력인증
+		if (!value.edu) {
+			errs.edu = '학력을 선택하세요.';
 		}
 
 		return errs;
@@ -176,6 +182,23 @@ export default function Members() {
 									<input type='checkbox' id='music' name='interest' onChange={handleRadio} />
 
 									{Errs.interest && <p>{Errs.interest}</p>}
+								</td>
+							</tr>
+
+							{/* education */}
+							<tr>
+								<th>
+									<label htmlFor='edu'>Education</label>
+								</th>
+								<td>
+									<select name='edu' id='deu'>
+										<option value=''>최종학력을 선택하세요.</option>
+										<option value='elementary-school'>초등학교 졸업</option>
+										<option value='middle-school'>중학교 졸업</option>
+										<option value='high-school'>고등학교 졸업</option>
+										<option value='college'>대학교 졸업</option>
+									</select>
+									{Errs.edu && <p>{Errs.edu}</p>}
 								</td>
 							</tr>
 
