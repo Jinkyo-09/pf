@@ -9,6 +9,7 @@ export default function Members() {
 		pw2: '',
 		emaim: '',
 		gender: false,
+		interest: false,
 	};
 
 	const [Val, setVal] = useState(initVal);
@@ -22,6 +23,14 @@ export default function Members() {
 	const handleRadio = (e) => {
 		const { name, checked } = e.target;
 		setVal({ ...Val, [name]: checked });
+	};
+
+	const handleCheck = (e) => {
+		const { name } = e.target;
+		let isChecked = false;
+		const inputs = e.target.parentElement.querySelectorAll('input');
+		inputs.forEach((input) => input.checked && (isChecked = true));
+		setVal({ ...Val, [name]: isChecked });
 	};
 
 	//인수값으로 state를 전달받아서 각 데이터별로 인증처리후
@@ -62,7 +71,12 @@ export default function Members() {
 
 		//성별인증
 		if (!value.gender) {
-			errs.gender = '성별을 하나이상 체크해주세요.';
+			errs.gender = '성별은 필수 체크 항목입니다.';
+		}
+
+		//관심사 인증
+		if (!value.interest) {
+			errs.interest = '관심사를 하나 이상 체크해주세요.';
 		}
 
 		return errs;
@@ -145,6 +159,23 @@ export default function Members() {
 									<label htmlFor='male'>male</label>
 									<input type='radio' name='gender' id='male' onChange={handleRadio} />
 									{Errs.gender && <p>{Errs.gender}</p>}
+								</td>
+							</tr>
+
+							{/* interest */}
+							<tr>
+								<th>Interests</th>
+								<td>
+									<label htmlFor='sports'>sports</label>
+									<input type='checkbox' id='sports' name='interest' onChange={handleRadio} />
+
+									<label htmlFor='game'>game</label>
+									<input type='checkbox' id='game' name='interest' onChange={handleRadio} />
+
+									<label htmlFor='music'>music</label>
+									<input type='checkbox' id='music' name='interest' onChange={handleRadio} />
+
+									{Errs.interest && <p>{Errs.interest}</p>}
 								</td>
 							</tr>
 
