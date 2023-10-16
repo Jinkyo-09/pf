@@ -1,5 +1,5 @@
 import './styles/Global.scss';
-import './styles/Variable.scss';
+
 import { Route, Switch } from 'react-router-dom';
 import Header from './components/common/header/Header';
 import Department from './components/sub/department/Department';
@@ -10,10 +10,15 @@ import Contact from './components/sub/contact/Contact';
 import Detail from './components/sub/youtube/Detail';
 import Community from './components/sub/community/Community';
 import Main from './components/main/mainwrap/Main';
+import { useRef } from 'react';
+import { useMedia } from './hook/useMedia';
 
 function App() {
+	useMedia();
+	const refMain = useRef(null);
+
 	return (
-		<>
+		<main ref={refMain}>
 			<Switch>
 				<Route exact path='/'>
 					<Header isMain={true} />
@@ -30,7 +35,7 @@ function App() {
 			<Route path='/contact' component={Contact} />
 			<Route path='/community' component={Community} />
 			<Route path='/detail/:id' component={Detail} />
-		</>
+		</main>
 	);
 }
 

@@ -1,4 +1,3 @@
-@import '../../../styles/Variable.scss';
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
 
 .Gallery {
@@ -107,34 +106,6 @@
 						cursor: pointer;
 					}
 				}
-			}
-		}
-	}
-}
-@media screen and (max-width: $labtop) {
-	.Gallery {
-		.picFrame {
-			article {
-				width: 33.333%;
-			}
-		}
-	}
-}
-
-@media screen and (max-width: $tablet) {
-	.Gallery {
-		.picFrame {
-			article {
-				width: 50%;
-			}
-		}
-	}
-}
-@media screen and (max-width: $mobile) {
-	.Gallery {
-		.picFrame {
-			article {
-				width: 100%;
 			}
 		}
 	}
