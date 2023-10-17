@@ -1,31 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
-
 .Members {
-	figure {
-		background-image: url('../../../../public/img/members.jpg');
-		background-size: cover;
-		background-position: top 45% center;
-	}
 	.content {
 		table {
-			width: 70%;
-			float: right;
+			width: 100%;
 			border: none;
+			border-top: 2px solid #333;
+			border-bottom: 2px solid #333;
 
 			th {
 				width: 20%;
 				border: none;
+				border-bottom: 1px solid #bbb;
 				padding: 15px 30px;
 				text-align: left;
-				font: bold 18px/1 'Nanum Myeongjo';
-
 				&:last-child {
 					text-align: center;
-
 					input[type='submit'],
 					input[type='reset'] {
 						border: 1px solid #aaa;
-						width: 15%;
+						width: 150px;
 						height: 30px;
 						display: inline-flex;
 						justify-content: center;
@@ -35,52 +27,32 @@
 					}
 				}
 			}
-
 			td {
 				border: none;
+				border-bottom: 1px solid #bbb;
+				border-left: 1px solid #bbb;
 				padding: 15px 30px;
 
 				input[type='text'],
-				input[type='password'] {
-					width: 70%;
+				input[type='password'],
+				textarea,
+				select {
+					width: 40%;
+					border: 1px solid #aaa;
 					padding: 6px 10px;
-					background-color: transparent;
-					border: none;
-					border-bottom: 2px solid #333;
-					font: 16px/1.3 'airal';
-
-					&:focus {
-						outline: none;
-					}
-				}
-
-				label {
-					font: 16px/1 'arial';
-					color: #444;
-					margin-right: 5px;
-				}
-
-				input[type='radio'],
-				input[type='checkbox'] {
-					margin-right: 20px;
-				}
-
-				textarea {
-					width: 70%;
-					padding: 6px 10px;
-					background-color: transparent;
-					border: none;
-					border-bottom: 2px solid #333;
+					background: #fff;
 					resize: none;
+				}
 
-					&:focus {
-						outline: none;
-					}
+				input[type='checkbox'],
+				input[type='radio'] {
+					margin-right: 20px;
+					padding: 5px;
 				}
 
 				p {
 					font: 0.8rem/1.2 '돋움';
-					color: red;
+					color: hotpink;
 					margin-top: 5px;
 				}
 			}
