@@ -53,10 +53,9 @@ export default function Department() {
 				</div>
 
 				<div className='lower'>
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio aliquam soluta
-						expedita fuga similique vitae quisquam. Distinctio, natus atque? Dolores commodi
-						doloremque quibusdam nisi obcaecati qui ad.
+					<p className='exp'>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio aliquam soluta expedita fuga similique vitae quisquam. Distinctio,
+						natus atque? Dolores commodi doloremque quibusdam nisi obcaecati qui ad.
 					</p>
 					<div className='memberBox'>
 						{Department.map((member, idx) => {
