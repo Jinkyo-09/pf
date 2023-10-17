@@ -42,7 +42,7 @@ export default function Header({ isMain }) {
 				</li>
 			</ul>
 
-			<FaBars />
+			<FaBars className='bars' fontSize={18} color='#888' />
 		</header>
 	);
 }
