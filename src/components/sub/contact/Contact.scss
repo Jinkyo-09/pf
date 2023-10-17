@@ -152,8 +152,11 @@
 					justify-content: flex-end;
 
 					li {
+						font-size: 14px;
 						cursor: pointer;
 						padding: 5px 10px;
+						word-break: keep-all;
+						text-align: center;
 					}
 
 					li.on {
@@ -185,6 +188,99 @@
 					&.on {
 						opacity: 1;
 						z-index: 2;
+					}
+				}
+			}
+		}
+	}
+}
+
+.tablet,
+mobile {
+	.Contact {
+		.content {
+			width: 100%;
+			position: relative;
+
+			.upperBox {
+				#mailBox {
+					width: 100%;
+					padding-right: 0px;
+				}
+
+				#etc {
+					width: 100%;
+					height: auto;
+					padding-left: 0px;
+					border-left: none;
+					margin-bottom: 10vh;
+				}
+			}
+
+			#mapBox {
+				width: 70%;
+				margin: 0 auto;
+
+				.btns {
+					display: flex;
+					justify-content: space-between;
+
+					.btnSet {
+						width: 100%;
+						margin: 0px auto;
+
+						button {
+							margin-right: 10px;
+							padding: 5px;
+							border: none;
+							margin-bottom: 8px;
+							font: 16px/1 'arial';
+							cursor: pointer;
+						}
+					}
+
+					ul {
+						display: flex;
+						gap: 20px;
+						width: 50%;
+						margin-bottom: 10px;
+						justify-content: flex-end;
+
+						li {
+							cursor: pointer;
+							padding: 5px 10px;
+						}
+
+						li.on {
+							background-color: #555;
+							color: #fff;
+							border-radius: 10px;
+						}
+					}
+				}
+
+				.container {
+					width: 100%;
+					height: 60vh;
+					margin: 0 auto;
+					background: #111;
+					position: relative;
+
+					.map,
+					.view {
+						width: 100%;
+						height: 100%;
+						background: #111;
+						position: absolute;
+						top: 0;
+						left: 0px;
+						opacity: 0;
+						z-index: 1;
+
+						&.on {
+							opacity: 1;
+							z-index: 2;
+						}
 					}
 				}
 			}

@@ -66,3 +66,40 @@
 		}
 	}
 }
+
+.tablet,
+.mobile {
+	.Youtube {
+		.content {
+			article {
+				flex-wrap: wrap;
+
+				.titBox {
+					width: 48%;
+				}
+				.conBox {
+					width: 48%;
+				}
+				.picBox {
+					width: 100%;
+					margin-top: 30px;
+				}
+			}
+		}
+	}
+}
+
+.mobile {
+	.Youtube {
+		.content {
+			article {
+				.titBox {
+					width: 100%;
+				}
+				.conBox {
+					width: 100%;
+				}
+			}
+		}
+	}
+}

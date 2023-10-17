@@ -110,3 +110,36 @@
 		}
 	}
 }
+
+.laptop,
+.tablet,
+.mobile {
+	.Gallery {
+		.picFrame {
+			article {
+				width: 23%;
+			}
+		}
+	}
+}
+
+.tablet,
+.mobile {
+	.Gallery {
+		.picFrame {
+			article {
+				width: 48%;
+			}
+		}
+	}
+}
+
+.mobile {
+	.Gallery {
+		.picFrame {
+			article {
+				width: 100%;
+			}
+		}
+	}
+}

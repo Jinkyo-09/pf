@@ -151,15 +151,11 @@ export default function Community() {
 								<div className='txt'>
 									<h2>{post.title}</h2>
 									<p>{post.content}</p>
-									<div className='time'>
-										{/* <p>{`${year}.${month}.${date}`}</p> */}
-										{/* <p>{`글 작성시간 : ${hour}:${min}:${sec}`}</p> */}
 
-										<nav className='btnSet'>
-											<button onClick={() => enableUpdate(idx)}>Edit</button>
-											<button onClick={() => deletePost(idx)}>Delete</button>
-										</nav>
-									</div>
+									<nav className='btnSet'>
+										<button onClick={() => enableUpdate(idx)}>Edit</button>
+										<button onClick={() => deletePost(idx)}>Delete</button>
+									</nav>
 								</div>
 							</article>
 						);
