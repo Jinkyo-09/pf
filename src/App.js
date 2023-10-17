@@ -14,8 +14,6 @@ import Main from './components/main/mainWrap/Main';
 import { useMedia } from './hooks/useMedia';
 
 function App() {
-	console.log(useMedia());
-
 	return (
 		<main className={useMedia()}>
 			<Switch>
