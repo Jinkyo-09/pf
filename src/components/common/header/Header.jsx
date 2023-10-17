@@ -1,4 +1,5 @@
 import { Link, NavLink } from 'react-router-dom';
+import { FaBars } from 'react-icons/fa';
 import './Header.scss';
 
 export default function Header({ isMain }) {
@@ -40,6 +41,8 @@ export default function Header({ isMain }) {
 					</NavLink>
 				</li>
 			</ul>
+
+			<FaBars />
 		</header>
 	);
 }
