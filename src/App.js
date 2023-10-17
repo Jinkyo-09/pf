@@ -9,21 +9,21 @@ import Gallery from './components/sub/gallery/Gallery';
 import Contact from './components/sub/contact/Contact';
 import Detail from './components/sub/youtube/Detail';
 import Community from './components/sub/community/Community';
-import Main from './components/main/mainwrap/Main';
-import { useRef } from 'react';
-import { useMedia } from './hook/useMedia';
+import Main from './components/main/mainWrap/Main';
+
+import { useMedia } from './hooks/useMedia';
 
 function App() {
-	useMedia();
-	const refMain = useRef(null);
+	console.log(useMedia());
 
 	return (
-		<main ref={refMain}>
+		<main className={useMedia()}>
 			<Switch>
 				<Route exact path='/'>
 					<Header isMain={true} />
 					<Main />
 				</Route>
+
 				<Route path='/'>
 					<Header isMain={false} />
 				</Route>
