@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
+
 .Members {
 	.content {
 		table {
@@ -12,6 +14,14 @@
 				border-bottom: 1px solid #bbb;
 				padding: 15px 30px;
 				text-align: left;
+				font: bold 17px/1 'Nanum Myeongjo';
+				color: #333;
+
+				label {
+					font: bold 17px/1 'Nanum Myeongjo';
+					color: #333;
+				}
+
 				&:last-child {
 					text-align: center;
 					input[type='submit'],
