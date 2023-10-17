@@ -52,7 +52,7 @@
 
 				p {
 					font: 0.8rem/1.2 '돋움';
-					color: hotpink;
+					color: red;
 					margin-top: 5px;
 				}
 			}
@@ -81,9 +81,6 @@
 .mobile {
 	.Members {
 		.content {
-			h1 {
-				font-size: 60px;
-			}
 			table {
 				th {
 					display: none;
