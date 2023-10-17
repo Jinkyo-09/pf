@@ -1,28 +1,10 @@
 import Layout from '../../common/layout/Layout';
 import './Youtube.scss';
-import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 export default function Youtube() {
-	const [Youtube, setYoutube] = useState([]);
-
-	//async await로 동기화 코드를 좀더 깔끔하게 정리
-	const fetchYoutube = async () => {
-		const api_key = process.env.REACT_APP_YOUTUBE_API;
-		const baseURL = 'https://www.googleapis.com/youtube/v3/playlistItems';
-		const pid = 'PL2pfG9YtKxMJVwlAjAIV9TBF5-44WnQ-q';
-		const num = 5;
-		const resultURL = `${baseURL}?key=${api_key}&part=snippet&playlistId=${pid}&maxResults=${num}`;
-
-		const data = await fetch(resultURL);
-		const json = await data.json();
-		console.log(json.items);
-		setYoutube(json.items);
-	};
-
-	useEffect(() => {
-		fetchYoutube();
-	}, []);
+	const Youtube = useSelector((store) => store.youtube.data);
 
 	return (
 		<>
@@ -32,7 +14,6 @@ export default function Youtube() {
 						let tit = data.snippet.title;
 						let desc = data.snippet.description;
 						let date = data.snippet.publishedAt;
-						console.log(Youtube.json);
 
 						return (
 							<article key={idx}>
@@ -46,7 +27,6 @@ export default function Youtube() {
 								</div>
 
 								<div className='picBox'>
-									{/* 썸네일 링크 클릭시 특정유튜브 객체 하나의 정보값을 받기 위해서 유튜브 객체의 id값을 params로 전달 */}
 									<Link to={`/detail/${data.id}`}>
 										<img src={data.snippet.thumbnails.standard.url} alt={data.title} />
 									</Link>
