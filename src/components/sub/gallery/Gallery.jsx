@@ -1,20 +1,21 @@
-import { useDispatch, useSelector } from 'react-redux';
 import Layout from '../../common/layout/Layout';
 import Modal from '../../common/modal/Modal';
 import './Gallery.scss';
 import { useState, useRef } from 'react';
 import Masonry from 'react-masonry-component';
+import { useSelector, useDispatch } from 'react-redux';
 import { fetchFlickr } from '../../../redux/flickrSlice';
+import { open } from '../../../redux/modalSlicke';
 
 export default function Gallery() {
 	const dispatch = useDispatch();
 	const Pics = useSelector((store) => store.flickr.data);
+	const IsModal = useSelector((store) => store.modal.isOpen);
 	const refInput = useRef(null);
 	const refBtnSet = useRef(null);
 	const [ActiveURL, setActiveURL] = useState('');
 	const [IsUser, setIsUser] = useState(true);
-	const [IsModal, setIsModal] = useState(false);
-	const my_id = '199299808@N06';
+	const my_id = '164021883@N04';
 
 	//submit이벤트 발생시 실행할 함수
 	const handleSubmit = (e) => {
@@ -53,7 +54,7 @@ export default function Gallery() {
 		btns.forEach((btn) => btn.classList.remove('on'));
 		e.target.classList.add('on');
 
-		dispatch(fetchFlickr({ type: 'user', id: my_id }));
+		dispatch(fetchFlickr({ type: 'interest' }));
 	};
 
 	//profile 아이디 클릭시 실행할 함수
@@ -66,21 +67,19 @@ export default function Gallery() {
 	return (
 		<>
 			<Layout title={'Gallery'}>
-				<div className='upper'>
-					<div className='searchBox'>
-						<form onSubmit={handleSubmit}>
-							<input ref={refInput} type='text' placeholder='검색어를 입력하세요' />
-							<button>search</button>
-						</form>
-					</div>
+				<div className='searchBox'>
+					<form onSubmit={handleSubmit}>
+						<input ref={refInput} type='text' placeholder='검색어를 입력하세요' />
+						<button>검색</button>
+					</form>
+				</div>
 
-					<div className='btnSet' ref={refBtnSet}>
-						<button className='on' onClick={handleClickMy}>
-							My Gallery
-						</button>
+				<div className='btnSet' ref={refBtnSet}>
+					<button className='on' onClick={handleClickMy}>
+						My Gallery
+					</button>
 
-						<button onClick={handleClickInterest}>Interest Gallery</button>
-					</div>
+					<button onClick={handleClickInterest}>Interest Gallery</button>
 				</div>
 
 				<div className='picFrame'>
@@ -95,7 +94,7 @@ export default function Gallery() {
 											alt={`https://live.staticflickr.com/${data.server}/${data.id}_${data.secret}_b.jpg`}
 											onClick={(e) => {
 												setActiveURL(e.target.getAttribute('alt'));
-												setIsModal(true);
+												dispatch(open());
 											}}
 										/>
 										<h2>{data.title}</h2>
@@ -119,20 +118,10 @@ export default function Gallery() {
 			</Layout>
 
 			{IsModal && (
-				<Modal setIsModal={setIsModal}>
+				<Modal>
 					<img src={ActiveURL} alt='img' />
 				</Modal>
 			)}
 		</>
 	);
 }
-
-/*
-	클릭한 버튼을 또 클릭했을때 같은 데이터를 불필요하게 또다시 fetching요청하지 않도록
-	클릭한 버튼에 on이 붙어있을때 함수 호출을 강제 중지
-
-	현재 출력되는 갤러리 방식이 User type 갤러리일때 같은 사용자의 갤러리가 보이는 형태이므로
-	사용자 아이디를 클릭하게되면 같은 데이터 요청을 보내게됨
-	--- 사용자 타입의 갤러리를 호출할때마다 IsUser state값을 true로 변경해서 
-	--- 이벤트가 발생할때마다 IsUser값이 true 사용자 아이디 클릭 이벤트 핸들러 제거
-*/
