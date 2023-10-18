@@ -32,12 +32,7 @@ export default function Members() {
 	const resetForm = (e) => {
 		e.preventDefault();
 		setVal(initVal);
-		/*
-		const checks = refCheckGroup.current.querySelectorAll('input');
-		const radios = refRadioGroup.current.querySelectorAll('input');
-		checks.forEach((input) => (input.checked = false));
-		radios.forEach((input) => (input.checked = false));
-    */
+
 		[refCheckGroup, refRadioGroup].forEach((el) => el.current.querySelectorAll('input').forEach((input) => (input.checked = false)));
 		refSelGroup.current.value = '';
 	};
@@ -50,28 +45,23 @@ export default function Members() {
 		setVal({ ...Val, [name]: isChecked });
 	};
 
-	//인수값으로 state를 전달받아서 각 데이터별로 인증처리후
-	//만약 인증 에러가 발생하면 해당 name값으로 에서 물구를 생성해서 반환하는 함수
 	const check = (value) => {
-		const num = /[0-9]/; //0과 9까지의 모든 값을 정규표현식으로 범위 지정
-		const txt = /[a-zA-Z]/; //대소문자 구분 없이 모든 문자 범위 지정
-		const spc = /[~!@#$%^&*()-_?]/; //모든 특수문자 지정
+		const num = /[0-9]/;
+		const txt = /[a-zA-Z]/;
+		const spc = /[~!@#$%^&*()-_?]/;
 
 		const errs = {};
 		if (value.userid.length < 5) {
 			errs.userid = '아이디는 최소 5글자 이상 입력하세요.';
 		}
-		//비밀번호 인증 (5글자 이상, 문자, 숫자, 특수문자 모두 포함)
 		if (value.pw1.length < 5 || !num.test(value.pw1) || !txt.test(value.pw1) || !spc.test(value.pw1)) {
 			errs.pwd1 = '비밀번호는 5글자이상, 문자,숫자,특수문자를 모두 포함해야 합니다.';
 		}
 
-		//비밀번호 재확인 인증
 		if (value.pw1 !== value.pw2 || !value.pw2) {
 			errs.pwd2 = '2개의 비밀번호를 같게 입력하세요.';
 		}
 
-		//이메일 인증
 		if (!value.email || !/@/.test(value.email)) {
 			errs.email = '이메일은 무조건 @를 포함해야 합니다.';
 		} else {
@@ -86,22 +76,18 @@ export default function Members() {
 			}
 		}
 
-		//성별인증
 		if (!value.gender) {
 			errs.gender = '성별은 필수 체크 항목입니다.';
 		}
 
-		//관심사 인증
 		if (!value.interest) {
 			errs.interest = '관심사를 하나 이상 체크해주세요.';
 		}
 
-		//학력인증
 		if (!value.edu) {
 			errs.edu = '학력을 선택하세요.';
 		}
 
-		//남기는말 인증
 		if (value.comments.length < 10) {
 			errs.comments = '남기는말은 10글자 이상 입력하세요.';
 		}
@@ -131,15 +117,7 @@ export default function Members() {
 									<label htmlFor='userid'>UserID</label>
 								</th>
 								<td>
-									<input
-										type='text'
-										id='userid'
-										name='userid'
-										//onChange가 발생할때마다 실시간으로 변경되고 있는 state의 value값을 출력
-										value={Val.userid}
-										onChange={HandleChange}
-										placeholder='아이디를 입력하세요.'
-									/>
+									<input type='text' id='userid' name='userid' value={Val.userid} onChange={HandleChange} placeholder='아이디를 입력하세요.' />
 									{Errs.userid && <p>{Errs.userid}</p>}
 								</td>
 							</tr>

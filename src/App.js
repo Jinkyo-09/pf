@@ -22,7 +22,6 @@ function App() {
 	const { isOpen } = useSelector((store) => store.menu);
 
 	useEffect(() => {
-		//컴포넌트 마운트시 fetchYoutube가 반환한 action객체를 dispatch함수를 통해서 reducer에 전달
 		dispatch(fetchYoutube());
 		dispatch(fetchFlickr({ type: 'user', id: '199299808@N06' }));
 	}, []);
