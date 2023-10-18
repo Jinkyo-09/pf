@@ -45,7 +45,3 @@ const flickrSlice = createSlice({
 });
 
 export default flickrSlice.reducer;
-
-/**
-  redux 시스템은 컴포넌트 외부에서 독립적으로 동작되어야 하기 때문에 부수효과 (side effect)를 발생시키지 않는 순수함수(Pure function) 형태로 작성되야함
- */
