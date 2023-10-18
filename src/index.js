@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import youtubeReducer from './redux/youtubeSlice';
 import flickrReducer from './redux/flickrSlice';
+import modalReducer from './redux/modalSlice';
 
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
@@ -14,6 +15,7 @@ const store = configureStore({
 	reducer: {
 		youtube: youtubeReducer,
 		flickr: flickrReducer,
+		modal: modalReducer,
 	},
 });
 
