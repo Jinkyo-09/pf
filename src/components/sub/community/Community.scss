@@ -218,3 +218,22 @@
 		}
 	}
 }
+
+.mobile {
+	.Community {
+		.content {
+			.inputBox {
+				padding: 0;
+				input[type='text'],
+				textarea {
+					width: 100%;
+				}
+				.btnSet {
+					width: 100%;
+					display: flex;
+					align-items: center;
+				}
+			}
+		}
+	}
+}
