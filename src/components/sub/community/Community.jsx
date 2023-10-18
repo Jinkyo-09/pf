@@ -1,12 +1,26 @@
+/**
+	1. 해당 페이지 설명 (이슈사항은 없었는지)
+ */
+
 import Layout from '../../common/layout/Layout';
 import './Community.scss';
 import { useRef, useState, useEffect } from 'react';
 
 export default function Community() {
+	const dummyData = [
+		{ title: 'title4', content: ' dummy text of the printing and typesetting industry.' },
+		{
+			title: 'title3',
+			content: ' Ipsum is therefore always free from repetition, injected humour.',
+		},
+		{ title: 'title2', content: ' There are many variations of passages of Lorem Ipsum available.' },
+		{ title: 'title1', content: ' The Extremes of Good and Evil) by Cicero, written in 45 BC.' },
+	];
+
 	const getLocalData = () => {
 		const data = localStorage.getItem('post');
 		if (data) return JSON.parse(data);
-		else return [];
+		else return dummyData;
 	};
 
 	const refInput = useRef(null);
@@ -147,3 +161,16 @@ export default function Community() {
 		</Layout>
 	);
 }
+
+/**
+	1. 해당 페이지 설명 (이슈사항은 없었는지)
+	A:
+	- 아직 데이터베이스를 배우지 않았지만 CRUD가능을 구형하고 싶어서 로컬 저장소를 활용해 만들어 봤음
+	- 이슈사항1 : 시간값을 가져왔는데 로컬 저장소에 글이 저장된 시점의 시간을 표준시로 저장을 해서 현재 시간보다 9시간이 늦은 시간으로 출력되는 문제
+	- 시간값을 변경하려고 보니 json.pasrse로 객체형태로 시간을 불러와져서 split메서드를 쓸수가 없는 이유를 몰라 삽질
+	- 객체형태로 젼환된 값을 다시 stringify로 문자화시킨 다음 split으로 문자값을 가공하고 다시 화면에 출력
+	-이슈사항2 : 서브컴퓨터로 작업물을 확인해보니 해당 브라우저에는 저장된 데이터가 없어서 커뮤니티 페이지가 빈화면으로 출력되는 이슈
+	- 로컬저장소에 값이 없을때 더미데이터가 출력되도록 수정
+
+	CRUD : 게시판
+ */
