@@ -12,8 +12,8 @@ export const fetchYoutube = createAsyncThunk('youtube/request', async () => {
 	const num = 5;
 	const resultURL = `${baseURL}?key=${api_key}&part=snippet&playlistId=${pid}&maxResults=${num}`;
 
-	const result = await fetch(resultURL);
-	return result.formData.items;
+	const result = await axios.get(resultURL);
+	return result.data.items;
 });
 //{type:'대기'}
 //{type:'성공': payload:[데이터]}

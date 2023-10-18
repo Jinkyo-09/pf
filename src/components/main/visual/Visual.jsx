@@ -6,14 +6,15 @@ function Visual() {
 	return (
 		<section className='visual'>
 			<h2>visual</h2>
-			{data.map((vid, idx) => {
-				if (idx >= 5) return null;
-				return (
-					<article key={idx}>
-						<h2>{vid.snippet.title}</h2>
-					</article>
-				);
-			})}
+			{data &&
+				data.map((vid, idx) => {
+					if (idx >= 5) return null;
+					return (
+						<article key={idx}>
+							<h2>{vid.snippet.title}</h2>
+						</article>
+					);
+				})}
 		</section>
 	);
 }
