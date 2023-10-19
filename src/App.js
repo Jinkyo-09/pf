@@ -11,7 +11,7 @@ import Detail from './components/sub/youtube/Detail';
 import Community from './components/sub/community/Community';
 import Footer from './components/common/footer/Footer';
 
-import Main from './components/main/mainWrap/Main';
+import Main from './components/main/mainwrap/Main';
 import { useMedia } from './hooks/useMedia';
 import { useEffect } from 'react';
 import { fetchYoutube } from './redux/youtubeSlice';

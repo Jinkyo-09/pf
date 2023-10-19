@@ -10,7 +10,7 @@
 	.titBox {
 		width: 40%;
 		height: 100%;
-		transform: translateX(15vw);
+		transform: translateX(10vw);
 		padding: 10vw 0;
 
 		ul {
@@ -21,7 +21,7 @@
 				padding-top: 5vh;
 				font-size: 3rem;
 				opacity: 0;
-				transform: translateY(-100px) scale(1.5);
+				transform: translateX(-100px);
 				transition: opacity 0.5s, transform 0.5s;
 				z-index: 1;
 
@@ -75,7 +75,7 @@
 
 				&.on {
 					opacity: 1;
-					transform: translateY(0px) scale(1);
+					transform: translateX(0px);
 					z-index: 2;
 
 					button {
