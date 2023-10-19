@@ -9,10 +9,8 @@ export default function Layout({ title, children }) {
 		<section className={`layout ${title}`}>
 			<figure></figure>
 
-			<div className='content'>
-				<h1>{title}</h1>
-				{children}
-			</div>
+			<h1>{title}</h1>
+			{children}
 		</section>
 	);
 }

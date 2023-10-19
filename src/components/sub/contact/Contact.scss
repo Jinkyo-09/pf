@@ -5,11 +5,10 @@
 		background-position: top 15% center;
 	}
 
-	.content {
-		width: 100%;
-		position: relative;
+	width: 100%;
+	position: relative;
 
-		/*
+	/*
 		&::before {
 			content: '';
 			display: block;
@@ -22,103 +21,196 @@
 		}
 		*/
 
-		h1 {
-			width: 70vw;
-			margin: 150px auto;
-			text-align: left;
-			position: relative;
-		}
+	h1 {
+		width: 70vw;
+		margin: 150px auto;
+		text-align: left;
+		position: relative;
+	}
 
-		.upperBox {
-			width: 70vw;
+	.upperBox {
+		width: 70vw;
+		margin: 0px auto;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+
+		#mailBox {
+			width: 50%;
 			margin: 0px auto;
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: space-between;
+			margin-bottom: 100px;
+			padding-right: 50px;
 
-			#mailBox {
-				width: 50%;
-				margin: 0px auto;
-				margin-bottom: 100px;
-				padding-right: 50px;
+			.upper {
+				width: 100%;
+				display: flex;
+				margin-bottom: 50px;
+				justify-content: space-between;
 
-				.upper {
-					width: 100%;
-					display: flex;
-					margin-bottom: 50px;
-					justify-content: space-between;
-
-					span {
-						width: 48%;
-
-						label {
-							font: bold 1rem/1 'arial';
-							color: #555;
-							width: 100%;
-							position: relative;
-						}
-						input[type='text'],
-						input[type='email'] {
-							width: 100%;
-							border: none;
-							padding: 10px 20px;
-							border-bottom: 1px solid #555;
-							margin-right: 50px;
-							outline: none;
-							transition: 0.5s;
-							background-color: transparent;
-						}
-					}
-				}
-
-				.lower {
-					width: 100%;
-					margin-bottom: 10px;
+				span {
+					width: 48%;
 
 					label {
-						display: block;
-						margin-bottom: 5px;
 						font: bold 1rem/1 'arial';
 						color: #555;
-					}
-					textarea {
 						width: 100%;
-						padding: 10px;
+						position: relative;
+					}
+					input[type='text'],
+					input[type='email'] {
+						width: 100%;
 						border: none;
+						padding: 10px 20px;
 						border-bottom: 1px solid #555;
 						margin-right: 50px;
-						resize: none;
 						outline: none;
 						transition: 0.5s;
 						background-color: transparent;
 					}
 				}
+			}
 
-				.btnSet {
+			.lower {
+				width: 100%;
+				margin-bottom: 10px;
+
+				label {
+					display: block;
+					margin-bottom: 5px;
+					font: bold 1rem/1 'arial';
+					color: #555;
+				}
+				textarea {
 					width: 100%;
-					padding-right: 20px;
-					display: flex;
-					gap: 50px;
-					justify-content: flex-end;
-
-					input {
-						display: block;
-						height: 40px;
-						background: transparent;
-						border: none;
-						font: 1rem/40px 'arial';
-						color: #555;
-						text-align: center;
-						cursor: pointer;
-					}
+					padding: 10px;
+					border: none;
+					border-bottom: 1px solid #555;
+					margin-right: 50px;
+					resize: none;
+					outline: none;
+					transition: 0.5s;
+					background-color: transparent;
 				}
 			}
 
-			#etc {
+			.btnSet {
+				width: 100%;
+				padding-right: 20px;
+				display: flex;
+				gap: 50px;
+				justify-content: flex-end;
+
+				input {
+					display: block;
+					height: 40px;
+					background: transparent;
+					border: none;
+					font: 1rem/40px 'arial';
+					color: #555;
+					text-align: center;
+					cursor: pointer;
+				}
+			}
+		}
+
+		#etc {
+			width: 50%;
+			height: 300px;
+			padding-left: 50px;
+			border-left: 1px solid #555;
+		}
+	}
+
+	#mapBox {
+		width: 70%;
+		margin: 0 auto;
+
+		.btns {
+			display: flex;
+			justify-content: space-between;
+
+			.btnSet {
+				width: 100%;
+				margin: 0px auto;
+
+				button {
+					margin-right: 10px;
+					padding: 5px;
+					border: none;
+					margin-bottom: 8px;
+					font: 16px/1 'arial';
+					cursor: pointer;
+				}
+			}
+
+			ul {
+				display: flex;
+				gap: 20px;
 				width: 50%;
-				height: 300px;
-				padding-left: 50px;
-				border-left: 1px solid #555;
+				margin-bottom: 10px;
+				justify-content: flex-end;
+
+				li {
+					font-size: 14px;
+					cursor: pointer;
+					padding: 5px 10px;
+					word-break: keep-all;
+					text-align: center;
+				}
+
+				li.on {
+					background-color: #555;
+					color: #fff;
+					border-radius: 10px;
+				}
+			}
+		}
+
+		.container {
+			width: 100%;
+			height: 60vh;
+			margin: 0 auto;
+			background: #111;
+			position: relative;
+
+			.map,
+			.view {
+				width: 100%;
+				height: 100%;
+				background: #111;
+				position: absolute;
+				top: 0;
+				left: 0px;
+				opacity: 0;
+				z-index: 1;
+
+				&.on {
+					opacity: 1;
+					z-index: 2;
+				}
+			}
+		}
+	}
+}
+
+.tablet,
+mobile {
+	.Contact {
+		width: 100%;
+		position: relative;
+
+		.upperBox {
+			#mailBox {
+				width: 100%;
+				padding-right: 0px;
+			}
+
+			#etc {
+				width: 100%;
+				height: auto;
+				padding-left: 0px;
+				border-left: none;
+				margin-bottom: 10vh;
 			}
 		}
 
@@ -152,11 +244,8 @@
 					justify-content: flex-end;
 
 					li {
-						font-size: 14px;
 						cursor: pointer;
 						padding: 5px 10px;
-						word-break: keep-all;
-						text-align: center;
 					}
 
 					li.on {
@@ -188,99 +277,6 @@
 					&.on {
 						opacity: 1;
 						z-index: 2;
-					}
-				}
-			}
-		}
-	}
-}
-
-.tablet,
-mobile {
-	.Contact {
-		.content {
-			width: 100%;
-			position: relative;
-
-			.upperBox {
-				#mailBox {
-					width: 100%;
-					padding-right: 0px;
-				}
-
-				#etc {
-					width: 100%;
-					height: auto;
-					padding-left: 0px;
-					border-left: none;
-					margin-bottom: 10vh;
-				}
-			}
-
-			#mapBox {
-				width: 70%;
-				margin: 0 auto;
-
-				.btns {
-					display: flex;
-					justify-content: space-between;
-
-					.btnSet {
-						width: 100%;
-						margin: 0px auto;
-
-						button {
-							margin-right: 10px;
-							padding: 5px;
-							border: none;
-							margin-bottom: 8px;
-							font: 16px/1 'arial';
-							cursor: pointer;
-						}
-					}
-
-					ul {
-						display: flex;
-						gap: 20px;
-						width: 50%;
-						margin-bottom: 10px;
-						justify-content: flex-end;
-
-						li {
-							cursor: pointer;
-							padding: 5px 10px;
-						}
-
-						li.on {
-							background-color: #555;
-							color: #fff;
-							border-radius: 10px;
-						}
-					}
-				}
-
-				.container {
-					width: 100%;
-					height: 60vh;
-					margin: 0 auto;
-					background: #111;
-					position: relative;
-
-					.map,
-					.view {
-						width: 100%;
-						height: 100%;
-						background: #111;
-						position: absolute;
-						top: 0;
-						left: 0px;
-						opacity: 0;
-						z-index: 1;
-
-						&.on {
-							opacity: 1;
-							z-index: 2;
-						}
 					}
 				}
 			}

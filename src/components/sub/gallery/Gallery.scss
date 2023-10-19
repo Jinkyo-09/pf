@@ -18,26 +18,28 @@
 			margin-bottom: 10px;
 			margin-right: 5px;
 
-			input {
-				width: 80%;
-				border: none;
-				padding: 8px;
-				border-bottom: 1px solid #555;
-				background-color: transparent;
-				transition: 0.5s;
+			form {
+				input {
+					width: 80%;
+					border: none;
+					padding: 8px;
+					border-bottom: 1px solid #555;
+					background-color: transparent;
+					transition: 0.5s;
 
-				&:focus {
-					outline: none;
+					&:focus {
+						outline: none;
+					}
 				}
-			}
 
-			button {
-				border: none;
-				background-color: transparent;
-				margin-left: 8px;
-				font: bold 16px/1 'Nanum Myeongjo';
-				cursor: pointer;
-				color: #555;
+				button {
+					border: none;
+					background-color: transparent;
+					margin-left: 8px;
+					font: bold 16px/1 'Nanum Myeongjo';
+					cursor: pointer;
+					color: #555;
+				}
 			}
 		}
 
@@ -107,18 +109,6 @@
 						cursor: pointer;
 					}
 				}
-			}
-		}
-	}
-}
-
-.laptop,
-.tablet,
-.mobile {
-	.Gallery {
-		.picFrame {
-			article {
-				width: 23%;
 			}
 		}
 	}
