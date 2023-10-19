@@ -9,6 +9,16 @@ function Visual() {
 
 	return (
 		<section className='visual'>
+			<div className='titBox'>
+				<ul>
+					{data &&
+						data.map((tit, idx) => {
+							if (idx >= 5) return null;
+							return <li>{tit.snippet.title}</li>;
+						})}
+				</ul>
+			</div>
+
 			<Swiper slidesPerView={3} spaceBetween={50} loop={true} centeredSlides={true}>
 				{data.map((vid, idx) => {
 					if (idx >= 5) return null;

@@ -1,7 +1,13 @@
 .visual {
 	width: 100%;
 	height: calc(100vh - 90px);
-	text-align: right;
+	display: flex;
+	justify-content: space-between;
+
+	.titBox {
+		width: 35%;
+		border: 1px solid red;
+	}
 
 	.swiper {
 		display: inline-block;
