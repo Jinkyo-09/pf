@@ -9,6 +9,8 @@ import Gallery from './components/sub/gallery/Gallery';
 import Contact from './components/sub/contact/Contact';
 import Detail from './components/sub/youtube/Detail';
 import Community from './components/sub/community/Community';
+import Footer from './components/common/footer/Footer';
+
 import Main from './components/main/mainWrap/Main';
 import { useMedia } from './hooks/useMedia';
 import { useEffect } from 'react';
@@ -44,6 +46,7 @@ function App() {
 			<Route path='/contact' component={Contact} />
 			<Route path='/community' component={Community} />
 			<Route path='/detail/:id' component={Detail} />
+			<Footer />
 			<Menu />
 		</main>
 	);

@@ -2,6 +2,7 @@ import './Visual.scss';
 import { useSelector } from 'react-redux';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import 'swiper/css';
 
 function Visual() {
@@ -20,7 +21,9 @@ function Visual() {
 								<li key={idx} className={idx === Index ? 'on' : ''}>
 									<h3>{tit.snippet.title}</h3>
 									<p>{tit.snippet.description.substr(0, 300) + '...'}</p>
-									<button>View Detail</button>
+									<button>
+										<Link to={`/detail/${tit.id}`}>View Deatil</Link>
+									</button>
 								</li>
 							);
 						})}
