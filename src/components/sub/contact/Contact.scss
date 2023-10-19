@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
+
 .Contact {
 	figure {
 		background-image: url('../../../../public/img/contact.jpg');
@@ -8,22 +10,8 @@
 	width: 100%;
 	position: relative;
 
-	/*
-		&::before {
-			content: '';
-			display: block;
-			width: 80%;
-			height: 200px;
-			background: #ddd;
-			position: absolute;
-			right: 0px;
-			top: 0px;
-		}
-		*/
-
 	h1 {
 		width: 70vw;
-		margin: 150px auto;
 		text-align: left;
 		position: relative;
 	}
@@ -118,6 +106,7 @@
 			height: 300px;
 			padding-left: 50px;
 			border-left: 1px solid #555;
+			font: 15px/1.4 'Nanum Myeongjo';
 		}
 	}
 

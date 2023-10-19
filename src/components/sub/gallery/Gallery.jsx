@@ -66,19 +66,21 @@ export default function Gallery() {
 	return (
 		<>
 			<Layout title={'Gallery'}>
-				<div className='searchBox'>
-					<form onSubmit={handleSubmit}>
-						<input ref={refInput} type='text' placeholder='검색어를 입력하세요' />
-						<button>검색</button>
-					</form>
-				</div>
+				<div className='upper'>
+					<div className='searchBox'>
+						<form onSubmit={handleSubmit}>
+							<input ref={refInput} type='text' placeholder='검색어를 입력하세요' />
+							<button>검색</button>
+						</form>
+					</div>
 
-				<div className='btnSet' ref={refBtnSet}>
-					<button className='on' onClick={handleClickMy}>
-						My Gallery
-					</button>
+					<div className='btnSet' ref={refBtnSet}>
+						<button className='on' onClick={handleClickMy}>
+							My Gallery
+						</button>
 
-					<button onClick={handleClickInterest}>Interest Gallery</button>
+						<button onClick={handleClickInterest}>Interest Gallery</button>
+					</div>
 				</div>
 
 				<div className='picFrame'>
