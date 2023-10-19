@@ -26,7 +26,7 @@ function News() {
 	}, []);
 
 	return (
-		<section className='news'>
+		<section className='news myScroll'>
 			<h2>news</h2>
 			<div className='postWrap'>
 				{Post &&

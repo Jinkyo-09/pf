@@ -1,7 +1,9 @@
+import Btns from '../btns/Btns';
 import Info from '../info/Info';
 import News from '../news/News';
 import Visual from '../visual/Visual';
 import './Main.scss';
+import { useRef } from 'react';
 
 function Main() {
 	return (
@@ -9,6 +11,7 @@ function Main() {
 			<Visual />
 			<News />
 			<Info />
+			<Btns />
 		</main>
 	);
 }
