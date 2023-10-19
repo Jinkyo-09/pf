@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
 
 .Members {
+	figure {
+		background-image: url('../../../../public/img/members.jpg');
+		background-size: cover;
+		background-position: top 50% center;
+	}
 	.content {
 		table {
 			width: 100%;
