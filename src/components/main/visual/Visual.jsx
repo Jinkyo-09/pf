@@ -20,7 +20,7 @@ function Visual() {
 							return (
 								<li key={idx} className={idx === Index ? 'on' : ''}>
 									<h3>{tit.snippet.title}</h3>
-									<p>{tit.snippet.description.substr(0, 300) + '...'}</p>
+									<p>{tit.snippet.description.substr(0, 250) + '...'}</p>
 									<button>
 										<Link to={`/detail/${tit.id}`}>View Deatil</Link>
 									</button>
