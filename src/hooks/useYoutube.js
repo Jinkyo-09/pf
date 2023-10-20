@@ -16,8 +16,19 @@ const fetchYoutube = async () => {
   react-quary는 쿼리키를 문자열로 지정해서 데이터 호출시 쿼리키의 문자열이 동일하면 동일한 데이터로 인지해서 refetching처리하지 않고 캐싱되어있는 데이터를 재활용한다
 
   useQuary([쿼리키],fetching함수, 캐싱옵션)
+
+  react-quary에서 쓰이는 데이터 상태 개념
+  - pending : 데이터 요청을 보내고 응답을 받기까지의 상태
+  - fresh : 작업자가 직접 지정한 데이터의 신선한 상태
+  - stale : 작업자가 지접 지정한 데이터의 신선하지 못한 옛날 데이터의 상태
+  - inactive : 해당 컴포넌트에서 react-quary로 관리하고 있는 데이터를 비활성화 상태
  */
 
 export const useYoutubeQuary = () => {
-	return useQuery(['YoutubeData'], fetchYoutube);
+	return useQuery(['YoutubeData'], fetchYoutube, {
+		refetchOnWindowFocus: false,
+		refrtchOnMount: false,
+		cacheTime: 1000 * 60,
+		staleTime: 1000 * 10,
+	});
 };
