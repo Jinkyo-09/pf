@@ -15,6 +15,10 @@
 		margin: 20px 0px;
 		border-radius: 5px;
 
+		&:nth-of-type(1) {
+			display: none;
+		}
+
 		&.on {
 			height: 100px;
 			background: #555;
