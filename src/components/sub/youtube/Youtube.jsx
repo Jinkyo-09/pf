@@ -5,15 +5,15 @@
 import Layout from '../../common/layout/Layout';
 import './Youtube.scss';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useYoutubeQuary } from '../../../hooks/useYoutube';
 
 export default function Youtube() {
-	const Youtube = useSelector((store) => store.youtube.data);
+	const { data: Youtube, isSuccess } = useYoutubeQuary();
 
 	return (
 		<>
 			<Layout title={'Youtube'}>
-				{Youtube &&
+				{isSuccess &&
 					Youtube.map((data, idx) => {
 						let tit = data.snippet.title;
 						let desc = data.snippet.description;
