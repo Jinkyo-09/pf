@@ -1,15 +1,22 @@
 import './Visual.scss';
-import { useSelector } from 'react-redux';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import 'swiper/css';
 import SwiperCore, { Autoplay } from 'swiper';
+import { useYoutubeQuary } from '../../../hooks/useYoutube';
 
 function Visual() {
-	const { data } = useSelector((store) => store.youtube);
 	const [Index, setIndex] = useState(0);
-	console.log(data);
+	const { data, isSuccess } = useYoutubeQuary();
+
+	/**
+		data : react-quary가 반환데이터
+		isError : 데이터 응답 실패시 true
+		isSuccess : 데이터 응답 성공시 true
+		isLoading : 데이터 요청 pending상태일때 true
+		isRefeching :true : 동일한 데이터라도 다시 리패칭 처리 유무 (디폴트 false)
+	 */
 
 	SwiperCore.use([Autoplay]);
 
@@ -17,7 +24,7 @@ function Visual() {
 		<section className='visual myScroll'>
 			<div className='titBox'>
 				<ul>
-					{data &&
+					{isSuccess &&
 						data.map((tit, idx) => {
 							if (idx >= 5) return null;
 							return (
@@ -55,17 +62,18 @@ function Visual() {
 					disableOnInteraction: false,
 				}}
 			>
-				{data.map((vid, idx) => {
-					if (idx >= 5) return null;
-					return (
-						<SwiperSlide key={idx}>
-							<div className='pic'>
-								<img src={vid.snippet.thumbnails.standard.url} alt={vid.title} />
-								<img src={vid.snippet.thumbnails.standard.url} alt={vid.title} />
-							</div>
-						</SwiperSlide>
-					);
-				})}
+				{isSuccess &&
+					data.map((vid, idx) => {
+						if (idx >= 5) return null;
+						return (
+							<SwiperSlide key={idx}>
+								<div className='pic'>
+									<img src={vid.snippet.thumbnails.standard.url} alt={vid.title} />
+									<img src={vid.snippet.thumbnails.standard.url} alt={vid.title} />
+								</div>
+							</SwiperSlide>
+						);
+					})}
 			</Swiper>
 		</section>
 	);

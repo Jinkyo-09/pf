@@ -14,7 +14,6 @@ import Footer from './components/common/footer/Footer';
 import Main from './components/main/mainWrap/Main';
 import { useMedia } from './hooks/useMedia';
 import { useEffect } from 'react';
-import { fetchYoutube } from './redux/youtubeSlice';
 import { fetchFlickr } from './redux/flickrSlice';
 import { useDispatch } from 'react-redux';
 import Menu from './components/common/menu/menu';
@@ -26,7 +25,6 @@ function App() {
 	const queryClient = new QueryClient();
 
 	useEffect(() => {
-		dispatch(fetchYoutube());
 		dispatch(fetchFlickr({ type: 'user', id: '199299808@N06' }));
 	}, []);
 
