@@ -4,11 +4,14 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import 'swiper/css';
+import SwiperCore, { Autoplay } from 'swiper';
 
 function Visual() {
 	const { data } = useSelector((store) => store.youtube);
 	const [Index, setIndex] = useState(0);
 	console.log(data);
+
+	SwiperCore.use([Autoplay]);
 
 	return (
 		<section className='visual myScroll'>
@@ -46,6 +49,10 @@ function Visual() {
 						slidesPerView: 3,
 						spaceBetween: 50,
 					},
+				}}
+				autoplay={{
+					delay: 5000,
+					disableOnInteraction: false,
 				}}
 			>
 				{data.map((vid, idx) => {
