@@ -1,4 +1,5 @@
 import Anime from '../../../asset/anime';
+import { useThrottle } from '../../../hooks/useThrottle';
 import './Btns.scss';
 import { useRef, useEffect, useState } from 'react';
 
@@ -30,14 +31,17 @@ function Btns() {
 		});
 	};
 
+	const ThrottledActivation = useThrottle(activation);
+	const useThrottledPos = useThrottle(getPos);
+
 	useEffect(() => {
 		getPos();
-		window.addEventListener('resize', getPos);
-		window.addEventListener('scroll', activation);
+		window.addEventListener('resize', useThrottledPos);
+		window.addEventListener('scroll', ThrottledActivation);
 
 		return () => {
-			window.removeEventListener('resize', getPos);
-			window.removeEventListener('scroll', activation);
+			window.removeEventListener('resize', useThrottledPos);
+			window.removeEventListener('scroll', ThrottledActivation);
 		};
 	}, []);
 

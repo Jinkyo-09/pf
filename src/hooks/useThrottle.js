@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 
+//인수로 특정 기능의 함수를 전달받아서 0.2초 안에는 재호출이 불가능하도록 다시 wrapping처리해서 함수형태로 반환
 export const useThrottle = (func) => {
 	const eventBlocker = useRef(null);
 
