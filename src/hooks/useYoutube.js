@@ -22,13 +22,19 @@ const fetchYoutube = async () => {
   - fresh : 작업자가 직접 지정한 데이터의 신선한 상태
   - stale : 작업자가 지접 지정한 데이터의 신선하지 못한 옛날 데이터의 상태
   - inactive : 해당 컴포넌트에서 react-quary로 관리하고 있는 데이터를 비활성화 상태
+
+  비동기 데이터가  inactive가 되면 무조건 캐시타임 카운트
+  inactive가 아닌 상태에서 data가 stale상태면 refetching발생
+  inactive 상태가 아니고 아직 fresh상태이면 refetching발생하지 않음
+
+  react-quary로 관리하는 서버 데이터가 만약 24시간 주기로 변경된다고 하면 staleTime을 24시간으로 지정해서 24시간 안에는 데이터를 refetching하지 않도록 처리
  */
 
 export const useYoutubeQuary = () => {
 	return useQuery(['YoutubeData'], fetchYoutube, {
 		refetchOnWindowFocus: false,
 		refrtchOnMount: false,
-		cacheTime: 1000 * 60,
-		staleTime: 1000 * 10,
+		cacheTime: 1000 * 60 * 60,
+		staleTime: 1000 * 60 * 60,
 	});
 };
