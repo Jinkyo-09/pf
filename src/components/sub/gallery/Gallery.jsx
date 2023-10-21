@@ -7,18 +7,19 @@ import Modal from '../../common/modal/Modal';
 import './Gallery.scss';
 import { useState, useRef } from 'react';
 import Masonry from 'react-masonry-component';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchFlickr } from '../../../redux/flickrSlice';
 import { open } from '../../../redux/modalSlicke';
+import { useFlickrQuary } from '../../../hooks/useFlickr';
 
 export default function Gallery() {
-	const dispatch = useDispatch();
-	const Pics = useSelector((store) => store.flickr.data);
+	const myid = '199299808@N06';
+	const [Opt, setOpt] = useState({ type: 'user', user: myid });
+
 	const refInput = useRef(null);
 	const refBtnSet = useRef(null);
 	const [ActiveURL, setActiveURL] = useState('');
 	const [IsUser, setIsUser] = useState(true);
 	const my_id = '164021883@N04';
+	const data = useFlickrQuary;
 
 	const handleSubmit = (e) => {
 		e.preventDefault();

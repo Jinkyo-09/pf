@@ -10,7 +10,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import flickrReducer from './redux/flickrSlice';
 import modalReducer from './redux/modalSlicke';
 import menuReducer from './redux/menuSlice';
 
@@ -20,7 +19,6 @@ import { configureStore } from '@reduxjs/toolkit';
 
 const store = configureStore({
 	reducer: {
-		flickr: flickrReducer,
 		modal: modalReducer,
 		menu: menuReducer,
 	},

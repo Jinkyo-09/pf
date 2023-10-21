@@ -13,20 +13,12 @@ import Footer from './components/common/footer/Footer';
 
 import Main from './components/main/mainWrap/Main';
 import { useMedia } from './hooks/useMedia';
-import { useEffect } from 'react';
-import { fetchFlickr } from './redux/flickrSlice';
-import { useDispatch } from 'react-redux';
 import Menu from './components/common/menu/menu';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 function App() {
-	const dispatch = useDispatch();
 	const queryClient = new QueryClient();
-
-	useEffect(() => {
-		dispatch(fetchFlickr({ type: 'user', id: '199299808@N06' }));
-	}, []);
 
 	return (
 		<QueryClientProvider client={queryClient}>
