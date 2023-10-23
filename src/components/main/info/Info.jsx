@@ -1,9 +1,11 @@
-import { useFlickrQuary } from '../../../hooks/useFlickr';
+import { useFlickrQuery } from '../../../hooks/useFlickr';
 import './Info.scss';
 
 function Info() {
-	const { data, isSuccess } = useFlickrQuary({ type: 'user', id: '199299808@N06' });
-
+	const { data, isSuccess } = useFlickrQuery({
+		type: 'user',
+		id: '164021883@N04',
+	});
 	return (
 		<section className='info myScroll'>
 			<div className='wrap'>
