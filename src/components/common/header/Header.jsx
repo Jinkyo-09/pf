@@ -1,11 +1,11 @@
 import { Link, NavLink } from 'react-router-dom';
 import { FaBars } from 'react-icons/fa';
 import './Header.scss';
-import { toggle } from '../../../redux/menuSlice';
-import { useDispatch } from 'react-redux';
+import { useGlobalData } from '../../../hooks/useGlobalContext';
 
 export default function Header({ isMain }) {
-	const dispatch = useDispatch();
+	const { MenuOpen, setMenuOpen } = useGlobalData();
+
 	return (
 		<header className='header  myScroll'>
 			<h1>
@@ -45,7 +45,7 @@ export default function Header({ isMain }) {
 				</li>
 			</ul>
 
-			<FaBars className='bars' fontSize={22} color={'#888'} onClick={() => dispatch(toggle())} />
+			<FaBars className='bars' fontSize={22} color={'#888'} onClick={() => setMenuOpen(!MenuOpen)} />
 		</header>
 	);
 }

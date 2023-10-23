@@ -1,23 +1,21 @@
 import './Modal.scss';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { close } from '../../../redux/modalSlicke';
+import { useGlobalData } from '../../../hooks/useGlobalContext';
 import { AnimatePresence, motion } from 'framer-motion';
 
 const Modal = ({ children }) => {
-	const dispatch = useDispatch();
-	const { isOpen } = useSelector((store) => store.modal);
+	const { ModalOpen, setModalOpen } = useGlobalData();
 
 	useEffect(() => {
-		isOpen ? (document.body.style.overflow = 'hidden') : (document.body.style.overflow = 'auto');
-	}, [isOpen]);
+		ModalOpen ? (document.body.style.overflow = 'hidden') : (document.body.style.overflow = 'auto');
+	}, [ModalOpen]);
 	return (
 		<>
 			<AnimatePresence>
-				{isOpen && (
+				{ModalOpen && (
 					<motion.aside className='modal' initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }}>
 						<div className='con'>{children}</div>
-						<span onClick={() => dispatch(close())}>close</span>
+						<span onClick={() => setModalOpen(false)}>close</span>
 					</motion.aside>
 				)}
 			</AnimatePresence>

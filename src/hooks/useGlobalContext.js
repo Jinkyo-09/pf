@@ -4,8 +4,9 @@ export const GlobalContext = createContext();
 
 export function GlobalProvider({ children }) {
 	const [MenuOpen, setMenuOpen] = useState(false);
+	const [ModalOpen, setModalOpen] = useState(false);
 
-	return <GlobalContext.Provider vlaue={(MenuOpen, setMenuOpen)}>{children}</GlobalContext.Provider>;
+	return <GlobalContext.Provider value={{ MenuOpen, setMenuOpen, ModalOpen, setModalOpen }}>{children}</GlobalContext.Provider>;
 }
 
 export function useGlobalData() {
