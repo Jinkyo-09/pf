@@ -17,6 +17,7 @@ import Menu from './components/common/menu/menu';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { useGlobalData } from './hooks/useGlobalContext';
+import './styles/index.css';
 
 function App() {
 	const queryClient = new QueryClient();
