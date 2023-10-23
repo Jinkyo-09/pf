@@ -5,18 +5,23 @@ header {
 	display: flex;
 	justify-content: space-between;
 	margin: 0 auto;
+	align-items: center;
 
 	h1 {
 		font-weight: bold;
 		font-size: 1.4rem;
+
+		a {
+			font-family: arial;
+		}
 	}
 
 	ul {
 		display: flex;
 		gap: 50px;
-		align-items: center;
 
 		li a {
+			font-family: arial;
 			&.active {
 				color: orangered;
 			}
@@ -26,6 +31,7 @@ header {
 		display: none;
 	}
 	.btnTheme {
+		font-family: arial;
 		cursor: pointer;
 		color: red;
 	}

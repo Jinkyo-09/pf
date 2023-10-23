@@ -29,6 +29,12 @@
 			margin-bottom: 100px;
 			padding-right: 50px;
 
+			h2 {
+				font-size: 25px;
+				font-weight: bold;
+				margin-bottom: 20px;
+			}
+
 			.upper {
 				width: 100%;
 				display: flex;
@@ -106,7 +112,13 @@
 			height: 300px;
 			padding-left: 50px;
 			border-left: 1px solid #555;
-			font: 15px/1.4 'Nanum Myeongjo';
+			font: 15px/1.4 'airal';
+
+			h2 {
+				font-size: 25px;
+				font-weight: bold;
+				margin-bottom: 20px;
+			}
 		}
 	}
 
@@ -145,6 +157,7 @@
 					padding: 5px 10px;
 					word-break: keep-all;
 					text-align: center;
+					font: 13px/1.2 'arial';
 				}
 
 				li.on {

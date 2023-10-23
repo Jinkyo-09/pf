@@ -1,12 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
+
 .news {
 	width: 100%;
 	height: 100vh;
-	background-color: lightgoldenrodyellow;
 	padding: 10vw;
 
 	h2 {
-		font: bold 40px/1.2 'arial';
-		margin-bottom: 50px;
+		font: bold 40px/1.2 'Nanum Myeongjo';
+		margin-bottom: 30px;
 	}
 
 	.postWrap {
@@ -15,10 +16,33 @@
 		justify-content: space-between;
 
 		article {
-			width: 20%;
-			height: 300px;
+			width: 30%;
+			height: auto;
 			padding: 20px;
 			background-color: #fff;
+			transition: 0.3s;
+			cursor: pointer;
+			border-top: 2px solid #111;
+			border-bottom: 2px solid #111;
+			//border-radius: 15px;
+			box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+
+			h2 {
+				font-size: 30px;
+				transition: 0.3s;
+			}
+
+			p {
+				font: 14px/1.3 'arial';
+			}
+
+			&:hover {
+				transform: scale(1.03);
+
+				h2 {
+					color: rgb(176, 59, 59);
+				}
+			}
 		}
 	}
 }

@@ -1,12 +1,12 @@
 .pics {
 	width: 100%;
 	//섹션의 높이값은 자식 요소, 4개의 div요소의 넓이값을 합친 총합의 크기만큼 확보해야함 (그 크기만큼 Pics영역안에서 스크롤 이벤트를 발생시켜야하기 때문)
-	height: 400vw;
+	height: 200vw;
 	background: pink;
 	position: relative;
 
 	article {
-		width: 400vw;
+		width: 200vw;
 		height: 100vh;
 		position: absolute;
 		top: 0;
@@ -26,12 +26,6 @@
 			}
 			&:nth-of-type(2) {
 				background: red;
-			}
-			&:nth-of-type(3) {
-				background: orange;
-			}
-			&:nth-of-type(4) {
-				background: green;
 			}
 		}
 	}

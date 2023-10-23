@@ -64,6 +64,8 @@
 
 	.picFrame {
 		width: 100%;
+		opacity: 0;
+		transition: opacity 1s 1s, translate 1s 1.5s;
 
 		&::after {
 			content: '';
@@ -96,7 +98,7 @@
 					width: 100%;
 					display: flex;
 					align-items: center;
-					gap: 20px;
+					gap: 10px;
 
 					img {
 						border-radius: 50%;
@@ -110,6 +112,12 @@
 					}
 				}
 			}
+		}
+	}
+
+	&.on {
+		.picFrame {
+			opacity: 1;
 		}
 	}
 }

@@ -1,5 +1,6 @@
 import './News.scss';
 import { useState, useEffect, useCallback, useMemo } from 'react';
+import { Link } from 'react-router-dom';
 
 function News() {
 	//useMemo는 특정 함수가 리턴해주는 값만 메모이제이션 가능하므로 dummyData에 담길 값 자체를 함수가 리천하게 처리하고 해당 함수를 useMemo의 인수로 전달한다음 의존성 배열을 비워놓음
@@ -31,7 +32,7 @@ function News() {
 
 	return (
 		<section className='news myScroll'>
-			<h2>news</h2>
+			<h2>Latest Community</h2>
 			<div className='postWrap'>
 				{Post &&
 					Post.map((el, idx) => {
@@ -39,8 +40,10 @@ function News() {
 						else
 							return (
 								<article key={idx}>
-									<h2>{el.title}</h2>
-									<p>{el.content}</p>
+									<Link to='/community'>
+										<h2>{el.title}</h2>
+										<p>{el.content}</p>
+									</Link>
 								</article>
 							);
 					})}
