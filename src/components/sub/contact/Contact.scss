@@ -112,7 +112,7 @@
 			height: 300px;
 			padding-left: 50px;
 			border-left: 1px solid #555;
-			font: 15px/1.4 'airal';
+			font: 15px/1.4 'Nanum Myeongjo';
 
 			h2 {
 				font-size: 25px;
@@ -157,7 +157,6 @@
 					padding: 5px 10px;
 					word-break: keep-all;
 					text-align: center;
-					font: 13px/1.2 'arial';
 				}
 
 				li.on {
@@ -196,11 +195,14 @@
 }
 
 .tablet,
-mobile {
+.mobile {
 	.Contact {
 		width: 100%;
 		position: relative;
 
+		h2 {
+			font-size: 50px;
+		}
 		.upperBox {
 			#mailBox {
 				width: 100%;
@@ -222,11 +224,14 @@ mobile {
 
 			.btns {
 				display: flex;
+				flex-direction: column;
 				justify-content: space-between;
 
 				.btnSet {
 					width: 100%;
 					margin: 0px auto;
+					display: flex;
+					justify-content: space-between;
 
 					button {
 						margin-right: 10px;
@@ -241,13 +246,14 @@ mobile {
 				ul {
 					display: flex;
 					gap: 20px;
-					width: 50%;
+					width: 100%;
 					margin-bottom: 10px;
-					justify-content: flex-end;
+					justify-content: space-between;
 
 					li {
 						cursor: pointer;
 						padding: 5px 10px;
+						font-family: arial;
 					}
 
 					li.on {

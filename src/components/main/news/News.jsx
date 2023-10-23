@@ -42,7 +42,7 @@ function News() {
 								<article key={idx}>
 									<Link to='/community'>
 										<h2>{el.title}</h2>
-										<p>{el.content}</p>
+										<p>{el.content.length > 300 ? el.content.substr(0, 300) + '...' : el.content}</p>
 									</Link>
 								</article>
 							);
