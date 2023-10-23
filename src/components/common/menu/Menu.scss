@@ -1,17 +1,25 @@
 .menu {
-	width: calc(100% - 100px);
+	width: calc(100% - 200px);
 	height: 100vh;
+	padding: 20px;
 	position: fixed;
 	top: 0;
 	left: 0;
-	background-color: #111;
+	background-color: #666;
 	color: #fff;
 	z-index: 5;
 
-	a {
+	h1 {
 		color: #fff;
+		font-size: 40px;
+		margin-bottom: 20px;
 	}
 	li {
-		color: #fff;
+		margin-bottom: 5px;
+		a {
+			color: #fff;
+			font-size: 20px;
+			font-family: arial;
+		}
 	}
 }
