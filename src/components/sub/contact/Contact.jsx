@@ -190,6 +190,7 @@ export default function Contact() {
 								}}
 							>
 								{el.title}
+								<div className='line'></div>
 							</li>
 						))}
 					</ul>

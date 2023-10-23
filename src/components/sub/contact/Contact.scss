@@ -157,12 +157,13 @@
 					padding: 5px 10px;
 					word-break: keep-all;
 					text-align: center;
-				}
+					transition: 0.5s;
+					font-family: arial;
+					font-weight: bold;
 
-				li.on {
-					background-color: #555;
-					color: #fff;
-					border-radius: 10px;
+					&.on {
+						color: orange;
+					}
 				}
 			}
 		}
