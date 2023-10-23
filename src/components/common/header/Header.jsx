@@ -4,7 +4,7 @@ import './Header.scss';
 import { useGlobalData } from '../../../hooks/useGlobalContext';
 
 export default function Header({ isMain }) {
-	const { MenuOpen, setMenuOpen } = useGlobalData();
+	const { MenuOpen, setMenuOpen, setTheme, Theme } = useGlobalData();
 
 	return (
 		<header className='header  myScroll'>
@@ -46,6 +46,10 @@ export default function Header({ isMain }) {
 			</ul>
 
 			<FaBars className='bars' fontSize={22} color={'#888'} onClick={() => setMenuOpen(!MenuOpen)} />
+
+			<span className='btnTheme' onClick={() => setTheme(!Theme)}>
+				Theme
+			</span>
 		</header>
 	);
 }
