@@ -7,7 +7,7 @@ import './Community.scss';
 import { useRef, useState, useEffect } from 'react';
 
 export default function Community() {
-	const dummyData = [
+	const dummyData = useRef([
 		{ title: 'title4', content: ' dummy text of the printing and typesetting industry.' },
 		{
 			title: 'title3',
@@ -15,12 +15,12 @@ export default function Community() {
 		},
 		{ title: 'title2', content: ' There are many variations of passages of Lorem Ipsum available.' },
 		{ title: 'title1', content: ' The Extremes of Good and Evil) by Cicero, written in 45 BC.' },
-	];
+	]);
 
 	const getLocalData = () => {
 		const data = localStorage.getItem('post');
 		if (data) return JSON.parse(data);
-		else return dummyData;
+		else return dummyData.current;
 	};
 
 	const refInput = useRef(null);
